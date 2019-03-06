@@ -23,7 +23,6 @@ inherited frmCad_Cargo: TfrmCad_Cargo
         end
       end
       inherited SMDBGrid1: TSMDBGrid
-        DataSource = DMCargo.dsConsulta
         ColCount = 3
         Columns = <
           item

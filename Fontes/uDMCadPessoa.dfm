@@ -769,6 +769,7 @@ object DMPessoa: TDMPessoa
     DataSetField = cdsPessoasdsPessoaAcompa
     IndexFieldNames = 'CODIGO;ITEM'
     Params = <>
+    OnCalcFields = cdsPessoaAcompCalcFields
     Left = 94
     Top = 112
     object cdsPessoaAcompCODIGO: TIntegerField
@@ -833,6 +834,13 @@ object DMPessoa: TDMPessoa
     end
     object cdsPessoaAcompID_PARENTESCO: TIntegerField
       FieldName = 'ID_PARENTESCO'
+    end
+    object cdsPessoaAcompNome_Parentesco: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'Nome_Parentesco'
+      ProviderFlags = []
+      Size = 60
+      Calculated = True
     end
   end
   object dsPessoaAcomp: TDataSource
@@ -987,6 +995,7 @@ object DMPessoa: TDMPessoa
     DataSetField = cdsPessoasdsPessoaRenda
     IndexFieldNames = 'CODIGO;ITEM'
     Params = <>
+    OnCalcFields = cdsPessoaRendaCalcFields
     OnNewRecord = cdsPessoaRendaNewRecord
     Left = 98
     Top = 171
@@ -1023,6 +1032,13 @@ object DMPessoa: TDMPessoa
     object cdsPessoaRendaNOME: TStringField
       FieldName = 'NOME'
       Size = 100
+    end
+    object cdsPessoaRendaNome_Parentesco: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'Nome_Parentesco'
+      ProviderFlags = []
+      Size = 50
+      Calculated = True
     end
   end
   object dsPessoaRenda: TDataSource

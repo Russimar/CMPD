@@ -1,6 +1,6 @@
 inherited frmCad_Pessoa: TfrmCad_Pessoa
-  Left = 216
-  Top = 25
+  Left = 108
+  Top = 16
   Width = 1077
   Height = 726
   Caption = 'Cadastro de Pessoas'
@@ -16,7 +16,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
   end
   inherited RzPageControl1: TRzPageControl
     Width = 1061
-    Height = 688
+    Height = 687
     ActivePage = TS_Cadastro
     TabIndex = 1
     OnChange = RzPageControl1Change
@@ -36,7 +36,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
       end
       inherited SMDBGrid1: TSMDBGrid
         Width = 1057
-        Height = 583
+        Height = 582
         DataSource = DMPessoa.dsConsulta
         ColCount = 7
         Columns = <
@@ -99,13 +99,15 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
       inherited RzPageControl2: TRzPageControl
         Top = 43
         Width = 1057
-        Height = 598
+        Height = 597
+        ActivePage = TS_Acomp
         UseColoredTabs = True
+        TabIndex = 2
         FixedDimension = 19
         inherited TS_Dados: TRzTabSheet
           inherited pnlCadastro: TPanel
             Width = 1053
-            Height = 575
+            Height = 574
             object Label2: TLabel
               Left = 66
               Top = 27
@@ -366,6 +368,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
               Height = 21
               DataField = 'CPF'
               DataSource = DMPessoa.dsPessoa
+              MaxLength = 14
               TabOrder = 7
               OnExit = DBEdit4Exit
             end
@@ -1044,12 +1047,12 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
             Left = 0
             Top = 0
             Width = 1053
-            Height = 575
+            Height = 574
             Align = alClient
             TabOrder = 0
             object pnlGridRenda: TPanel
               Left = 1
-              Top = 489
+              Top = 488
               Width = 1051
               Height = 85
               Align = alBottom
@@ -1085,10 +1088,10 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
                   end
                   item
                     Expanded = False
-                    FieldName = 'ID_PARENTESCO'
+                    FieldName = 'Nome_Parentesco'
                     Title.Alignment = taCenter
-                    Title.Caption = 'Parentesco'
-                    Width = 72
+                    Title.Caption = 'Nome Parentesco'
+                    Width = 244
                     Visible = True
                   end
                   item
@@ -1112,6 +1115,14 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
                     Title.Caption = 'Informal'
                     Width = 57
                     Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = 'ID_PARENTESCO'
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Parentesco'
+                    Width = 72
+                    Visible = True
                   end>
               end
             end
@@ -1119,7 +1130,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
               Left = 51
               Top = 1
               Width = 1001
-              Height = 488
+              Height = 487
               Align = alClient
               Enabled = False
               TabOrder = 1
@@ -1232,7 +1243,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
               Left = 1
               Top = 1
               Width = 50
-              Height = 488
+              Height = 487
               Align = alLeft
               Enabled = False
               TabOrder = 2
@@ -1564,7 +1575,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
             Left = 50
             Top = 0
             Width = 1003
-            Height = 490
+            Height = 489
             Align = alClient
             Enabled = False
             TabOrder = 0
@@ -1714,6 +1725,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
               Height = 21
               DataField = 'CPF'
               DataSource = DMPessoa.dsPessoaAcomp
+              MaxLength = 14
               TabOrder = 5
               OnExit = DBEdit23Exit
             end
@@ -1810,6 +1822,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
               Height = 21
               DataField = 'CEP'
               DataSource = DMPessoa.dsPessoaAcomp
+              MaxLength = 10
               TabOrder = 11
             end
             object RxDBLookupCombo4: TRxDBLookupCombo
@@ -1830,7 +1843,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
             Left = 0
             Top = 0
             Width = 50
-            Height = 490
+            Height = 489
             Align = alLeft
             Enabled = False
             TabOrder = 1
@@ -2156,7 +2169,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
           end
           object pnlGridAcomp: TPanel
             Left = 0
-            Top = 490
+            Top = 489
             Width = 1053
             Height = 85
             Align = alBottom
@@ -2164,7 +2177,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
             object DBGrid1: TDBGrid
               Left = 1
               Top = 1
-              Width = 998
+              Width = 1051
               Height = 83
               Align = alClient
               DataSource = DMPessoa.dsPessoaAcomp
@@ -2198,9 +2211,9 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
                 end
                 item
                   Expanded = False
-                  FieldName = 'PARENTESCO'
+                  FieldName = 'Nome_Parentesco'
                   Title.Alignment = taCenter
-                  Title.Caption = 'Parentesco'
+                  Title.Caption = 'Nome Parentesco'
                   Visible = True
                 end
                 item
@@ -2208,6 +2221,13 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
                   FieldName = 'DATA_NASCIMENTO'
                   Title.Alignment = taCenter
                   Title.Caption = 'Data Nascimento'
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'PARENTESCO'
+                  Title.Alignment = taCenter
+                  Title.Caption = 'Parentesco'
                   Visible = True
                 end>
             end
@@ -2219,12 +2239,12 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
             Left = 0
             Top = 0
             Width = 1053
-            Height = 575
+            Height = 574
             Align = alClient
             TabOrder = 0
             object pnlGridBeneficio: TPanel
               Left = 1
-              Top = 489
+              Top = 488
               Width = 1051
               Height = 85
               Align = alBottom
@@ -2232,7 +2252,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
               object DBGrid3: TDBGrid
                 Left = 1
                 Top = 1
-                Width = 996
+                Width = 1049
                 Height = 83
                 Align = alClient
                 DataSource = DMPessoa.dsPessoaBeneficio
@@ -2272,7 +2292,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
               Left = 51
               Top = 1
               Width = 1001
-              Height = 488
+              Height = 487
               Align = alClient
               Enabled = False
               TabOrder = 1
@@ -2333,7 +2353,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
               Left = 1
               Top = 1
               Width = 50
-              Height = 488
+              Height = 487
               Align = alLeft
               Enabled = False
               TabOrder = 2
@@ -2662,7 +2682,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
       end
       object pnlCor: TPanel
         Left = 0
-        Top = 641
+        Top = 640
         Width = 1057
         Height = 24
         Align = alBottom

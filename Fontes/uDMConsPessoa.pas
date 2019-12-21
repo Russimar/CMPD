@@ -80,6 +80,7 @@ type
     cdsConsEstacionamentoDT_VENC_ESTACIONAMENTO: TDateField;
     frxConsEstacionamento: TfrxDBDataset;
     cdsConsTDNIS: TStringField;
+    cdsConsTDFONE2: TStringField;
   private
     { Private declarations }
   public

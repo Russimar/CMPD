@@ -1,6 +1,6 @@
 object frmConsPessoa: TfrmConsPessoa
-  Left = 55
-  Top = 133
+  Left = 18
+  Top = 29
   Width = 1255
   Height = 480
   Caption = 'Consulta Geral'
@@ -19,7 +19,7 @@ object frmConsPessoa: TfrmConsPessoa
     Left = 0
     Top = 0
     Width = 1239
-    Height = 442
+    Height = 441
     Align = alClient
     TabOrder = 0
     object Panel2: TPanel
@@ -348,7 +348,7 @@ object frmConsPessoa: TfrmConsPessoa
     end
     object Panel3: TPanel
       Left = 1
-      Top = 385
+      Top = 384
       Width = 1237
       Height = 56
       Align = alBottom
@@ -518,7 +518,7 @@ object frmConsPessoa: TfrmConsPessoa
       Left = 1
       Top = 103
       Width = 1237
-      Height = 282
+      Height = 281
       ActivePage = ts_TipoDeficiencia
       ActivePageIndex = 1
       Align = alClient
@@ -539,7 +539,7 @@ object frmConsPessoa: TfrmConsPessoa
           Left = 0
           Top = 0
           Width = 1237
-          Height = 261
+          Height = 260
           Align = alClient
           DataSource = DMConsPessoa.dsConsCidade
           Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
@@ -623,7 +623,7 @@ object frmConsPessoa: TfrmConsPessoa
           Left = 0
           Top = 0
           Width = 1237
-          Height = 261
+          Height = 260
           Align = alClient
           DataSource = DMConsPessoa.dsConsTD
           Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
@@ -651,7 +651,7 @@ object frmConsPessoa: TfrmConsPessoa
           WidthOfIndicator = 11
           DefaultRowHeight = 17
           ScrollBars = ssHorizontal
-          ColCount = 6
+          ColCount = 7
           RowCount = 2
           Columns = <
             item
@@ -674,6 +674,13 @@ object frmConsPessoa: TfrmConsPessoa
               FieldName = 'FONE'
               Title.Alignment = taCenter
               Title.Caption = 'Telefone'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'FONE2'
+              Title.Alignment = taCenter
+              Title.Caption = 'Telefone2'
               Visible = True
             end
             item
@@ -706,7 +713,7 @@ object frmConsPessoa: TfrmConsPessoa
           Left = 0
           Top = 0
           Width = 1237
-          Height = 261
+          Height = 260
           Align = alClient
           DataSource = DMConsPessoa.dsConsEscolaridade
           Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
@@ -780,7 +787,7 @@ object frmConsPessoa: TfrmConsPessoa
           Left = 0
           Top = 0
           Width = 1237
-          Height = 261
+          Height = 260
           Align = alClient
           DataSource = DMConsPessoa.dsConsPasseLivre
           Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
@@ -876,7 +883,7 @@ object frmConsPessoa: TfrmConsPessoa
           Left = 0
           Top = 0
           Width = 1237
-          Height = 261
+          Height = 260
           Align = alClient
           DataSource = DMConsPessoa.dsConsEstacionamento
           Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]

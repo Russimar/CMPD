@@ -9,6 +9,7 @@ function Monta_Numero(Campo: string; Tamanho: Integer): string;
 function ValidaCNPJ(numCNPJ: string): Boolean;
 function ValidaCPF(numCPF: string): Boolean;
 function VerificaDuplicidade(vCnpj, vTipo: string; ID: Integer; ID_Filial: Integer = 0): string;
+function  SQLLocate(Tabela, CampoProcura, CampoRetorno, ValorFind: string): string ;
 procedure SalvaImagem(FieldImg : TField; nFile : TFileName; ComponentDBImg : TDBImage; FieldExt : String = 'EXTENSAO');
 
 var
@@ -209,6 +210,30 @@ begin
     TBlobField(FieldImg).Assign(ComponentDBImg.Picture);
   end;
 end;
+
+function SQLLocate(Tabela, CampoProcura, CampoRetorno, ValorFind: string): string ;
+var
+  MyQuery: TSQLQuery;
+begin
+  if ValorFind <> '' then
+  begin
+    MyQuery := TSQLQuery.Create(dmDatabase);
+    MyQuery.SQLConnection :=  dmDatabase.scoPrincipal;
+    MyQuery.Close;
+    MyQuery.SQL.Clear ;
+    MyQuery.SQL.Add('select ' + CampoRetorno + ' from ' + Tabela) ;
+    MyQuery.SQL.Add('where  ' + CampoProcura + ' = ' + QuotedStr(ValorFind));
+    MyQuery.Open ;
+    if not MyQuery.EOF then
+      SQLLocate := MyQuery.FieldByName(CampoRetorno).AsString
+    else
+      SQLLocate := '' ;
+    MyQuery.Destroy ;
+  end
+  else
+    ValorFind := '' ;
+end ;
+
 
 end.
 

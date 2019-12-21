@@ -95,9 +95,10 @@ object DMConsPessoa: TDMConsPessoa
     NoMetadata = True
     GetMetadata = False
     CommandText = 
-      'SELECT P.CODIGO, P.NOME, '#39'('#39' || P.DDDFONE1 || '#39')'#39' || P.TELEFONE1' +
-      ' FONE, D.NOME NOME_DEFICIENCIA, P.NIS'#13#10'FROM PESSOA P'#13#10'LEFT JOIN ' +
-      'DEFICIENCIA D ON D.ID = P.ID_DEFICIENCIA '
+      'select P.CODIGO, P.NOME, '#39'('#39' || P.DDDFONE1 || '#39')'#39' || P.TELEFONE1' +
+      ' FONE, '#39'('#39' || P.DDDFONE2 || '#39')'#39' || P.TELEFONE2 FONE2,'#13#10'       D.' +
+      'NOME NOME_DEFICIENCIA, P.NIS'#13#10'from PESSOA P'#13#10'left join DEFICIENC' +
+      'IA D on D.ID = P.ID_DEFICIENCIA '
     MaxBlobSize = -1
     Params = <>
     SQLConnection = dmDatabase.scoPrincipal
@@ -135,6 +136,10 @@ object DMConsPessoa: TDMConsPessoa
     object cdsConsTDNIS: TStringField
       FieldName = 'NIS'
       Size = 15
+    end
+    object cdsConsTDFONE2: TStringField
+      FieldName = 'FONE2'
+      Size = 28
     end
   end
   object dsConsTD: TDataSource
@@ -247,7 +252,7 @@ object DMConsPessoa: TDMConsPessoa
     PrintOptions.Printer = 'Padr'#227'o'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43330.540652534700000000
-    ReportOptions.LastChange = 43333.591843923610000000
+    ReportOptions.LastChange = 43820.294541759260000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -320,7 +325,7 @@ object DMConsPessoa: TDMConsPessoa
           ParentFont = False
         end
         object Memo8: TfrxMemoView
-          Left = 491.190476190000000000
+          Left = 445.190476190000000000
           Top = 108.009276190000000000
           Width = 56.393011900000000000
           Height = 15.118120000000000000
@@ -330,7 +335,7 @@ object DMConsPessoa: TDMConsPessoa
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Memo.UTF8 = (
-            'Fone')
+            'Fone(s)')
           ParentFont = False
         end
         object Line1: TfrxLineView
@@ -442,7 +447,7 @@ object DMConsPessoa: TDMConsPessoa
           ParentFont = False
         end
         object Memo14: TfrxMemoView
-          Left = 596.190476190000000000
+          Left = 624.190476190000000000
           Top = 108.721397620000000000
           Width = 56.393011900000000000
           Height = 15.118120000000000000
@@ -481,7 +486,7 @@ object DMConsPessoa: TDMConsPessoa
         object Memo5: TfrxMemoView
           Left = 250.333333330000000000
           Top = 0.224798570000000000
-          Width = 238.110390000000000000
+          Width = 192.756030000000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -493,9 +498,9 @@ object DMConsPessoa: TDMConsPessoa
           ParentFont = False
         end
         object Memo6: TfrxMemoView
-          Left = 491.190476190000000000
+          Left = 445.190476190000000000
           Top = 0.224798570000000000
-          Width = 94.488250000000000000
+          Width = 86.929190000000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -521,7 +526,7 @@ object DMConsPessoa: TDMConsPessoa
           ParentFont = False
         end
         object Memo15: TfrxMemoView
-          Left = 596.190476190000000000
+          Left = 624.190476190000000000
           Top = 0.224798570000000000
           Width = 94.488250000000000000
           Height = 15.118120000000000000
@@ -532,6 +537,19 @@ object DMConsPessoa: TDMConsPessoa
           Font.Style = []
           Memo.UTF8 = (
             '[frxConsTD."NIS"]')
+          ParentFont = False
+        end
+        object Memo16: TfrxMemoView
+          Left = 535.472790000000000000
+          Width = 83.149660000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxConsTD."FONE2"]')
           ParentFont = False
         end
       end
@@ -667,7 +685,8 @@ object DMConsPessoa: TDMConsPessoa
       'NOME=NOME'
       'FONE=FONE'
       'NOME_DEFICIENCIA=NOME_DEFICIENCIA'
-      'NIS=NIS')
+      'NIS=NIS'
+      'FONE2=FONE2')
     DataSource = dsConsTD
     BCDToCurrency = False
     Left = 395

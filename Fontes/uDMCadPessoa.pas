@@ -308,12 +308,16 @@ type
     cdsCidadeConsultaID: TIntegerField;
     cdsCidadeConsultaNOME: TStringField;
     cdsCidadeConsultaUF: TStringField;
+    cdsPessoaRendaNome_Parentesco: TStringField;
+    cdsPessoaAcompNome_Parentesco: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsPessoaNewRecord(DataSet: TDataSet);
     procedure cdsPessoaCalcFields(DataSet: TDataSet);
     procedure cdsPessoaRendaNewRecord(DataSet: TDataSet);
     procedure dspPessoaGetTableName(Sender: TObject; DataSet: TDataSet;
       var TableName: String);
+    procedure cdsPessoaRendaCalcFields(DataSet: TDataSet);
+    procedure cdsPessoaAcompCalcFields(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -427,7 +431,7 @@ begin
   cdsConsulta.Close;
   sdsConsulta.CommandText := ctCommand;
   if Trim(x) <> '' then
-    sdsConsulta.CommandText := sdsConsulta.CommandText + ' AND P.NOME LIKE ' + QuotedStr('%' + x + '%');
+    sdsConsulta.CommandText := sdsConsulta.CommandText + ' AND P.NOME_COLLATE LIKE ' + QuotedStr('%' + x + '%');
   sdsConsulta.CommandText := sdsConsulta.CommandText + ' ORDER BY P.NOME';
   cdsConsulta.Open;
 end;
@@ -534,6 +538,18 @@ procedure TDMPessoa.dspPessoaGetTableName(Sender: TObject;
 begin
   if DataSet.Name = 'sdsPessoaBeneficio' then
     TableName := 'PESSOA_BENEFICIO';
+end;
+
+procedure TDMPessoa.cdsPessoaRendaCalcFields(DataSet: TDataSet);
+begin
+  if cdsPessoaRendaID_PARENTESCO.AsInteger > 0 then
+    cdsPessoaRendaNome_Parentesco.AsString := SQLLocate('PARENTESCO','ID','DESCRICAO',cdsPessoaRendaID_PARENTESCO.AsString);
+end;
+
+procedure TDMPessoa.cdsPessoaAcompCalcFields(DataSet: TDataSet);
+begin
+  if cdsPessoaAcompID_PARENTESCO.AsInteger > 0 then
+    cdsPessoaAcompNome_Parentesco.AsString := SQLLocate('PARENTESCO','ID','DESCRICAO',cdsPessoaAcompID_PARENTESCO.AsString);
 end;
 
 end.

@@ -382,6 +382,41 @@ object DMCadEmpresa: TDMCadEmpresa
       ProviderFlags = []
       Size = 23
     end
+    object sdsEmpresa_DiretoriaENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Size = 60
+    end
+    object sdsEmpresa_DiretoriaCOMPLEMENTO_END: TStringField
+      FieldName = 'COMPLEMENTO_END'
+      Size = 60
+    end
+    object sdsEmpresa_DiretoriaNUM_END: TStringField
+      FieldName = 'NUM_END'
+      Size = 15
+    end
+    object sdsEmpresa_DiretoriaBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Size = 30
+    end
+    object sdsEmpresa_DiretoriaCEP: TStringField
+      FieldName = 'CEP'
+      Size = 9
+    end
+    object sdsEmpresa_DiretoriaID_CIDADE: TIntegerField
+      FieldName = 'ID_CIDADE'
+    end
+    object sdsEmpresa_DiretoriaCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Size = 40
+    end
+    object sdsEmpresa_DiretoriaUF: TStringField
+      FieldName = 'UF'
+      Size = 2
+    end
+    object sdsEmpresa_DiretoriaEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Size = 200
+    end
   end
   object cdsEmpresa_Diretoria: TClientDataSet
     Aggregates = <>
@@ -437,6 +472,41 @@ object DMCadEmpresa: TDMCadEmpresa
       FieldName = 'EXERCICIO'
       ProviderFlags = []
       Size = 23
+    end
+    object cdsEmpresa_DiretoriaENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Size = 60
+    end
+    object cdsEmpresa_DiretoriaCOMPLEMENTO_END: TStringField
+      FieldName = 'COMPLEMENTO_END'
+      Size = 60
+    end
+    object cdsEmpresa_DiretoriaNUM_END: TStringField
+      FieldName = 'NUM_END'
+      Size = 15
+    end
+    object cdsEmpresa_DiretoriaBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Size = 30
+    end
+    object cdsEmpresa_DiretoriaCEP: TStringField
+      FieldName = 'CEP'
+      Size = 9
+    end
+    object cdsEmpresa_DiretoriaID_CIDADE: TIntegerField
+      FieldName = 'ID_CIDADE'
+    end
+    object cdsEmpresa_DiretoriaCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Size = 40
+    end
+    object cdsEmpresa_DiretoriaUF: TStringField
+      FieldName = 'UF'
+      Size = 2
+    end
+    object cdsEmpresa_DiretoriaEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Size = 200
     end
   end
   object dsEmpresa_Diretoria: TDataSource

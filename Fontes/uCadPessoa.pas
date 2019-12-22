@@ -12,14 +12,12 @@ type
   TfrmCad_Pessoa = class(TfrmCadPadrao)
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
-    DBEdit3: TDBEdit;
     DBEdit4: TDBEdit;
     DBEdit5: TDBEdit;
     DBEdit6: TDBEdit;
     DBEdit7: TDBEdit;
     Label2: TLabel;
     Label3: TLabel;
-    Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
@@ -101,8 +99,6 @@ type
     DBEdit31: TDBEdit;
     Label39: TLabel;
     DBEdit32: TDBEdit;
-    RxDBLookupCombo3: TRxDBLookupCombo;
-    Label40: TLabel;
     Label41: TLabel;
     DBDateEdit3: TDBDateEdit;
     RzGroupBox1: TRzGroupBox;
@@ -185,6 +181,30 @@ type
     btnConfirmarBeneficio: TNxButton;
     btnCancelarBeneficio: TNxButton;
     RxDBLookupCombo7: TRxDBLookupCombo;
+    ts_CID: TRzTabSheet;
+    pnlBotaoCID: TPanel;
+    btnInserirCID: TNxButton;
+    btnAlterarCID: TNxButton;
+    btnExcluirCID: TNxButton;
+    btnConfirmarCID: TNxButton;
+    btnCancelarCID: TNxButton;
+    pnlCID: TPanel;
+    Label67: TLabel;
+    comboCID: TRxDBLookupCombo;
+    Label65: TLabel;
+    Label68: TLabel;
+    DBDateEdit12: TDBDateEdit;
+    DBDateEdit13: TDBDateEdit;
+    DBCheckBox4: TDBCheckBox;
+    Panel4: TPanel;
+    DBGrid4: TDBGrid;
+    Label4: TLabel;
+    DBEdit3: TDBEdit;
+    Label40: TLabel;
+    DBEdit42: TDBEdit;
+    Label69: TLabel;
+    RxDBLookupCombo3: TRxDBLookupCombo;
+    chkFalecido: TDBCheckBox;
     procedure FormShow(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
@@ -214,6 +234,11 @@ type
     procedure btnExcluirBeneficioClick(Sender: TObject);
     procedure btnConfirmarBeneficioClick(Sender: TObject);
     procedure btnCancelarBeneficioClick(Sender: TObject);
+    procedure btnInserirCIDClick(Sender: TObject);
+    procedure btnAlterarCIDClick(Sender: TObject);
+    procedure btnExcluirCIDClick(Sender: TObject);
+    procedure btnConfirmarCIDClick(Sender: TObject);
+    procedure btnCancelarCIDClick(Sender: TObject);
   private
     { Private declarations }
     ffrmConsAniversario : TfrmConsAniversario;
@@ -224,6 +249,7 @@ type
     procedure prc_Habilita_Acomp(sender: TObject);
     procedure prc_Habilita_Renda(sender: TObject);
     procedure prc_Habilita_Beneficio(sender: TObject);
+    procedure prc_Habilita_CID(sender: TObject);
     procedure prc_Verifica_Vaga;
   public
     { Public declarations }
@@ -268,6 +294,7 @@ begin
   fDMCadPessoa.cdsReligiao.Open;
   fDMCadPessoa.cdsBeneficio.Close;
   fDMCadPessoa.cdsBeneficio.Open;
+  fDMCadPessoa.cdsEmpresa.Open;
   prc_Verifica_Vaga;
   RzPageControl1.ActivePage := TS_Consulta;
 end;
@@ -313,6 +340,7 @@ begin
     prc_Habilita_Acomp(Sender);
     prc_Habilita_Renda(Sender);
     prc_Habilita_Beneficio(Sender);
+    prc_Habilita_CID(Sender);
   end;
 end;
 
@@ -322,6 +350,7 @@ begin
   prc_Habilita_Acomp(Sender);
   prc_Habilita_Renda(Sender);
   prc_Habilita_Beneficio(Sender);
+  prc_Habilita_CID(Sender);
   fDMCadPessoa.prc_Alterar;
 end;
 
@@ -339,6 +368,7 @@ begin
   prc_Habilita_Acomp(Sender);
   prc_Habilita_Renda(Sender);
   prc_Habilita_Beneficio(Sender);
+  prc_Habilita_CID(Sender);
   prc_Habilitar_Campos(Sender);
 end;
 
@@ -783,6 +813,114 @@ begin
     exit;
   fDMCadPessoa.cdsPessoaBeneficio.Cancel;
   prc_Habilita_Beneficio(sender);
+end;
+
+procedure TfrmCad_Pessoa.prc_Habilita_CID(sender: TObject);
+begin
+  if ((Sender as TNxButton).Name = 'btnInserir') or ((Sender as TNxButton).Name = 'btnAlterar') then
+  begin
+    pnlBotaoCID.Enabled := True;
+    pnlCID.Enabled := False;
+    btnInserirCID.Enabled := True;
+    btnConfirmarCID.Enabled := False;
+    btnAlterarCID.Enabled := True;
+    btnExcluirCID.Enabled := True;
+    btnCancelarCID.Enabled := False;
+  end;
+  if ((Sender as TNxButton).Name = 'btnConfirmar') or ((Sender as TNxButton).Name = 'btnCancelar') then
+  begin
+    pnlBotaoCID.Enabled := False;
+    pnlCID.Enabled := False;
+    btnInserirCID.Enabled := False;
+    btnConfirmarCID.Enabled := True;
+    btnAlterarCID.Enabled := False;
+    btnExcluirCID.Enabled := False;
+    btnCancelarCID.Enabled := True;
+  end;
+
+  if (Sender as TNxButton).Name = 'btnInserirCID' then
+  begin
+    pnlCID.Enabled := True;
+    btnInserirCID.Enabled := False;
+    btnConfirmarCID.Enabled := True;
+    btnAlterarCID.Enabled := False;
+    btnExcluirCID.Enabled := False;
+    btnCancelarCID.Enabled := True;
+    comboCID.SetFocus;
+  end;
+  if (Sender as TNxButton).Name = 'btnAlterarCID' then
+  begin
+    pnlCID.Enabled := True;
+    btnInserirCID.Enabled := False;
+    btnConfirmarCID.Enabled := True;
+    btnAlterarCID.Enabled := False;
+    btnExcluirCID.Enabled := False;
+    btnCancelarCID.Enabled := True;
+    comboCID.SetFocus;
+  end;
+  if (Sender as TNxButton).Name = 'btnConfirmarCID' then
+  begin
+    pnlCID.Enabled := False;
+    btnInserirCID.Enabled := True;
+    btnConfirmarCID.Enabled := False;
+    btnAlterarCID.Enabled := True;
+    btnExcluirCID.Enabled := True;
+    btnCancelarCID.Enabled := False;
+  end;
+  if (Sender as TNxButton).Name = 'btnCancelarCID' then
+  begin
+    pnlCID.Enabled := False;
+    btnInserirCID.Enabled := True;
+    btnConfirmarCID.Enabled := False;
+    btnAlterarCID.Enabled := True;
+    btnExcluirCID.Enabled := True;
+    btnCancelarCID.Enabled := False;
+  end;
+end;
+
+procedure TfrmCad_Pessoa.btnInserirCIDClick(Sender: TObject);
+begin
+  inherited;
+  prc_Habilita_CID(sender);
+  fDMCadPessoa.prc_Abrir_CID(fDMCadPessoa.cdsPessoaCODIGO.AsInteger);
+  fDMCadPessoa.prc_Inserir_CID;
+end;
+
+procedure TfrmCad_Pessoa.btnAlterarCIDClick(Sender: TObject);
+begin
+  inherited;
+  if fDMCadPessoa.cdsPessoa_Cid.IsEmpty then
+    exit;
+  prc_Habilita_CID(sender);
+  fDMCadPessoa.cdsPessoa_Cid.Edit;
+end;
+
+procedure TfrmCad_Pessoa.btnExcluirCIDClick(Sender: TObject);
+begin
+  inherited;
+  if fDMCadPessoa.cdsPessoa_Cid.IsEmpty then
+    exit;
+  if MessageDlg('Deseja excluir esse registro?', mtConfirmation, [mbYes, mbNo], 0) = mrNo then
+    exit;
+  fDMCadPessoa.cdsPessoa_Cid.Delete;
+end;
+
+procedure TfrmCad_Pessoa.btnConfirmarCIDClick(Sender: TObject);
+begin
+  inherited;
+  if fDMCadPessoa.cdsPessoa_Cid.IsEmpty then
+    exit;
+  fDMCadPessoa.cdsPessoa_Cid.Post;
+  prc_Habilita_CID(sender);
+end;
+
+procedure TfrmCad_Pessoa.btnCancelarCIDClick(Sender: TObject);
+begin
+  inherited;
+  if fDMCadPessoa.cdsPessoa.IsEmpty then
+    exit;
+  fDMCadPessoa.cdsPessoa_Cid.Cancel;
+  prc_Habilita_CID(sender);
 end;
 
 end.

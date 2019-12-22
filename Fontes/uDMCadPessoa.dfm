@@ -1,10 +1,10 @@
 object DMPessoa: TDMPessoa
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 354
-  Top = 115
-  Height = 514
-  Width = 759
+  Left = 283
+  Top = 72
+  Height = 558
+  Width = 833
   object sdsPessoa: TSQLDataSet
     NoMetadata = True
     GetMetadata = False
@@ -247,6 +247,21 @@ object DMPessoa: TDMPessoa
     object sdsPessoaNUMERO_REGISTRO_PI: TStringField
       FieldName = 'NUMERO_REGISTRO_PI'
       Size = 15
+    end
+    object sdsPessoaORGAO_EMISSOR: TStringField
+      FieldName = 'ORGAO_EMISSOR'
+    end
+    object sdsPessoaCERTIDAO_NASCIMENTO: TStringField
+      FieldName = 'CERTIDAO_NASCIMENTO'
+      Size = 35
+    end
+    object sdsPessoaFALECIDO: TStringField
+      FieldName = 'FALECIDO'
+      FixedChar = True
+      Size = 1
+    end
+    object sdsPessoaID_EMPRESA: TIntegerField
+      FieldName = 'ID_EMPRESA'
     end
   end
   object dspPessoa: TDataSetProvider
@@ -518,6 +533,24 @@ object DMPessoa: TDMPessoa
     object cdsPessoasdsPessoaBeneficio: TDataSetField
       FieldName = 'sdsPessoaBeneficio'
     end
+    object cdsPessoasdsPessoa_Cid: TDataSetField
+      FieldName = 'sdsPessoa_Cid'
+    end
+    object cdsPessoaORGAO_EMISSOR: TStringField
+      FieldName = 'ORGAO_EMISSOR'
+    end
+    object cdsPessoaCERTIDAO_NASCIMENTO: TStringField
+      FieldName = 'CERTIDAO_NASCIMENTO'
+      Size = 35
+    end
+    object cdsPessoaFALECIDO: TStringField
+      FieldName = 'FALECIDO'
+      FixedChar = True
+      Size = 1
+    end
+    object cdsPessoaID_EMPRESA: TIntegerField
+      FieldName = 'ID_EMPRESA'
+    end
   end
   object dsPessoa: TDataSource
     DataSet = cdsPessoa
@@ -591,7 +624,7 @@ object DMPessoa: TDMPessoa
     Params = <>
     SQLConnection = dmDatabase.scoPrincipal
     Left = 21
-    Top = 316
+    Top = 356
     object sdsCidadeID: TIntegerField
       FieldName = 'ID'
       Required = True
@@ -612,7 +645,7 @@ object DMPessoa: TDMPessoa
   object dspCidade: TDataSetProvider
     DataSet = sdsCidade
     Left = 61
-    Top = 316
+    Top = 356
   end
   object cdsCidade: TClientDataSet
     Aggregates = <>
@@ -620,7 +653,7 @@ object DMPessoa: TDMPessoa
     Params = <>
     ProviderName = 'dspCidade'
     Left = 109
-    Top = 316
+    Top = 356
     object cdsCidadeID: TIntegerField
       FieldName = 'ID'
       Required = True
@@ -641,7 +674,7 @@ object DMPessoa: TDMPessoa
   object dsCidade: TDataSource
     DataSet = cdsCidade
     Left = 157
-    Top = 316
+    Top = 356
   end
   object sdsDeficiencia: TSQLDataSet
     NoMetadata = True
@@ -651,7 +684,7 @@ object DMPessoa: TDMPessoa
     Params = <>
     SQLConnection = dmDatabase.scoPrincipal
     Left = 42
-    Top = 370
+    Top = 410
     object sdsDeficienciaID: TIntegerField
       FieldName = 'ID'
       Required = True
@@ -664,14 +697,14 @@ object DMPessoa: TDMPessoa
   object dspDeficiencia: TDataSetProvider
     DataSet = sdsDeficiencia
     Left = 74
-    Top = 370
+    Top = 410
   end
   object cdsDeficiencia: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dspDeficiencia'
     Left = 106
-    Top = 370
+    Top = 410
     object cdsDeficienciaID: TIntegerField
       FieldName = 'ID'
       Required = True
@@ -684,7 +717,7 @@ object DMPessoa: TDMPessoa
   object dsDeficiencia: TDataSource
     DataSet = cdsDeficiencia
     Left = 138
-    Top = 370
+    Top = 410
   end
   object sdsPessoaAcompa: TSQLDataSet
     NoMetadata = True
@@ -904,7 +937,7 @@ object DMPessoa: TDMPessoa
     MaxBlobSize = -1
     Params = <>
     SQLConnection = dmDatabase.scoPrincipal
-    Left = 261
+    Left = 237
     Top = 205
     object sdsParentescoID: TIntegerField
       FieldName = 'ID'
@@ -917,14 +950,14 @@ object DMPessoa: TDMPessoa
   end
   object dspParentesco: TDataSetProvider
     DataSet = sdsParentesco
-    Left = 293
+    Left = 269
     Top = 205
   end
   object cdsParentesco: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dspParentesco'
-    Left = 325
+    Left = 301
     Top = 205
     object cdsParentescoID: TIntegerField
       FieldName = 'ID'
@@ -937,7 +970,7 @@ object DMPessoa: TDMPessoa
   end
   object dsParentesco: TDataSource
     DataSet = cdsParentesco
-    Left = 357
+    Left = 333
     Top = 205
   end
   object sdsPessoaRenda: TSQLDataSet
@@ -1087,8 +1120,8 @@ object DMPessoa: TDMPessoa
     IndexDefs = <>
     Params = <>
     StoreDefs = True
-    Left = 261
-    Top = 286
+    Left = 653
+    Top = 94
     Data = {
       C10000009619E0BD010000001800000007000000000003000000C10006436F64
       69676F0400010000000000044E6F6D6501004900000001000557494454480200
@@ -1127,8 +1160,8 @@ object DMPessoa: TDMPessoa
   end
   object dsmAniversario: TDataSource
     DataSet = mAniversario
-    Left = 288
-    Top = 285
+    Left = 680
+    Top = 93
   end
   object frxReport1: TfrxReport
     Tag = 1
@@ -1148,8 +1181,8 @@ object DMPessoa: TDMPessoa
       ''
       'end.')
     OnReportPrint = 'frxReportOnReportPrint'
-    Left = 470
-    Top = 219
+    Left = 638
+    Top = 323
     Datasets = <
       item
         DataSet = frxAniversario
@@ -1413,8 +1446,8 @@ object DMPessoa: TDMPessoa
       'Bairro=Bairro')
     DataSource = dsmAniversario
     BCDToCurrency = False
-    Left = 471
-    Top = 269
+    Left = 639
+    Top = 373
   end
   object qAniversario: TSQLQuery
     NoMetaData = False
@@ -1431,8 +1464,8 @@ object DMPessoa: TDMPessoa
       'FROM PESSOA A'
       'LEFT JOIN CIDADE C ON A.ID_CIDADE = C.ID')
     SQLConnection = dmDatabase.scoPrincipal
-    Left = 258
-    Top = 331
+    Left = 658
+    Top = 27
     object qAniversarioCODIGO: TIntegerField
       FieldName = 'CODIGO'
       Required = True
@@ -1516,20 +1549,20 @@ object DMPessoa: TDMPessoa
         ParamType = ptInput
       end>
     SQLConnection = dmDatabase.scoPrincipal
-    Left = 517
-    Top = 32
+    Left = 245
+    Top = 376
   end
   object dspConsVencto_Passe: TDataSetProvider
     DataSet = sdsConsVencto_Passe
-    Left = 549
-    Top = 32
+    Left = 277
+    Top = 376
   end
   object cdsConsVencto_Passe: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dspConsVencto_Passe'
-    Left = 581
-    Top = 32
+    Left = 309
+    Top = 376
     object cdsConsVencto_PasseDIAS_PASSEMUNICIPAL: TIntegerField
       FieldName = 'DIAS_PASSEMUNICIPAL'
     end
@@ -1575,8 +1608,8 @@ object DMPessoa: TDMPessoa
   end
   object dsConsVencto_Passe: TDataSource
     DataSet = cdsConsVencto_Passe
-    Left = 613
-    Top = 32
+    Left = 341
+    Top = 376
   end
   object sdsReligiao: TSQLDataSet
     NoMetadata = True
@@ -1585,8 +1618,8 @@ object DMPessoa: TDMPessoa
     MaxBlobSize = -1
     Params = <>
     SQLConnection = dmDatabase.scoPrincipal
-    Left = 438
-    Top = 118
+    Left = 246
+    Top = 318
     object sdsReligiaoID: TIntegerField
       FieldName = 'ID'
       Required = True
@@ -1598,15 +1631,15 @@ object DMPessoa: TDMPessoa
   end
   object dspReligiao: TDataSetProvider
     DataSet = sdsReligiao
-    Left = 469
-    Top = 118
+    Left = 277
+    Top = 318
   end
   object cdsReligiao: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dspReligiao'
-    Left = 501
-    Top = 118
+    Left = 309
+    Top = 318
     object cdsReligiaoID: TIntegerField
       FieldName = 'ID'
       Required = True
@@ -1618,8 +1651,8 @@ object DMPessoa: TDMPessoa
   end
   object dsReligiao: TDataSource
     DataSet = cdsReligiao
-    Left = 533
-    Top = 118
+    Left = 341
+    Top = 318
   end
   object sdsPessoaBeneficio: TSQLDataSet
     NoMetadata = True
@@ -1672,6 +1705,7 @@ object DMPessoa: TDMPessoa
     Left = 93
     Top = 238
     object cdsPessoaBeneficioCODIGO: TIntegerField
+      DisplayLabel = 'C'#243'digo'
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
@@ -1707,8 +1741,8 @@ object DMPessoa: TDMPessoa
     MaxBlobSize = -1
     Params = <>
     SQLConnection = dmDatabase.scoPrincipal
-    Left = 422
-    Top = 380
+    Left = 238
+    Top = 156
     object sdsBeneficioID: TIntegerField
       FieldName = 'ID'
       Required = True
@@ -1720,15 +1754,15 @@ object DMPessoa: TDMPessoa
   end
   object dspBeneficio: TDataSetProvider
     DataSet = sdsBeneficio
-    Left = 454
-    Top = 380
+    Left = 270
+    Top = 156
   end
   object cdsBeneficio: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dspBeneficio'
-    Left = 486
-    Top = 380
+    Left = 302
+    Top = 156
     object cdsBeneficioID: TIntegerField
       FieldName = 'ID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -1741,15 +1775,15 @@ object DMPessoa: TDMPessoa
   end
   object dsBeneficio: TDataSource
     DataSet = cdsBeneficio
-    Left = 518
-    Top = 380
+    Left = 334
+    Top = 156
   end
   object frxConsPessoa: TfrxDBDataset
     UserName = 'frxConsPessoa'
     CloseDataSource = False
     BCDToCurrency = False
-    Left = 552
-    Top = 266
+    Left = 672
+    Top = 374
   end
   object sdsCidadeConsulta: TSQLDataSet
     NoMetadata = True
@@ -1763,20 +1797,20 @@ object DMPessoa: TDMPessoa
         ParamType = ptInput
       end>
     SQLConnection = dmDatabase.scoPrincipal
-    Left = 532
-    Top = 184
+    Left = 244
+    Top = 264
   end
   object dspCidadeConsulta: TDataSetProvider
     DataSet = sdsCidadeConsulta
-    Left = 564
-    Top = 184
+    Left = 276
+    Top = 264
   end
   object cdsCidadeConsulta: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dspCidadeConsulta'
-    Left = 596
-    Top = 184
+    Left = 308
+    Top = 264
     object cdsCidadeConsultaID: TIntegerField
       FieldName = 'ID'
       Required = True
@@ -1792,7 +1826,131 @@ object DMPessoa: TDMPessoa
   end
   object dsCidadeConsulta: TDataSource
     DataSet = cdsCidadeConsulta
-    Left = 627
-    Top = 184
+    Left = 339
+    Top = 264
+  end
+  object sdsPessoa_Cid: TSQLDataSet
+    NoMetadata = True
+    GetMetadata = False
+    CommandText = 'SELECT * FROM PESSOA_CID'#13#10'WHERE CODIGO = :CODIGO'
+    DataSource = dsMestre
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'CODIGO'
+        ParamType = ptInput
+        Size = 4
+      end>
+    SQLConnection = dmDatabase.scoPrincipal
+    Left = 33
+    Top = 295
+    object sdsPessoa_CidCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object sdsPessoa_CidID_CID: TIntegerField
+      FieldName = 'ID_CID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object sdsPessoa_CidDATA_INICIO: TDateField
+      FieldName = 'DATA_INICIO'
+    end
+    object sdsPessoa_CidDATA_FINAL: TDateField
+      FieldName = 'DATA_FINAL'
+    end
+    object sdsPessoa_CidPRINCIPAL: TStringField
+      FieldName = 'PRINCIPAL'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object cdsPessoa_Cid: TClientDataSet
+    Aggregates = <>
+    DataSetField = cdsPessoasdsPessoa_Cid
+    IndexFieldNames = 'CODIGO;ID_CID'
+    Params = <>
+    OnCalcFields = cdsPessoa_CidCalcFields
+    Left = 93
+    Top = 294
+    object cdsPessoa_CidCODIGO: TIntegerField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsPessoa_CidID_CID: TIntegerField
+      FieldName = 'ID_CID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsPessoa_CidDATA_INICIO: TDateField
+      DisplayLabel = 'Data Inicial'
+      FieldName = 'DATA_INICIO'
+    end
+    object cdsPessoa_CidDATA_FINAL: TDateField
+      DisplayLabel = 'Data Final'
+      FieldName = 'DATA_FINAL'
+    end
+    object cdsPessoa_CidPRINCIPAL: TStringField
+      DisplayLabel = 'Cid Principal'
+      FieldName = 'PRINCIPAL'
+      FixedChar = True
+      Size = 1
+    end
+    object cdsPessoa_CidNome_Cid: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'Nome_Cid'
+      Size = 60
+      Calculated = True
+    end
+    object cdsPessoa_CidCID: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'CID'
+      Size = 15
+      Calculated = True
+    end
+  end
+  object dsPessoa_Cid: TDataSource
+    DataSet = cdsPessoa_Cid
+    Left = 141
+    Top = 295
+  end
+  object sdsEmpresa: TSQLDataSet
+    NoMetadata = True
+    GetMetadata = False
+    CommandText = 'SELECT ID, NOME_FANTASIA FROM EMPRESA'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = dmDatabase.scoPrincipal
+    Left = 232
+    Top = 424
+  end
+  object dspEmpresa: TDataSetProvider
+    DataSet = sdsEmpresa
+    Left = 264
+    Top = 424
+  end
+  object cdsEmpresa: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspEmpresa'
+    Left = 296
+    Top = 424
+    object cdsEmpresaID: TIntegerField
+      FieldName = 'ID'
+      Required = True
+    end
+    object cdsEmpresaNOME_FANTASIA: TStringField
+      FieldName = 'NOME_FANTASIA'
+      Size = 30
+    end
+  end
+  object dsEmpresa: TDataSource
+    DataSet = cdsEmpresa
+    Left = 328
+    Top = 424
   end
 end

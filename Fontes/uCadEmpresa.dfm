@@ -1,6 +1,6 @@
 inherited frmCadEmpresa: TfrmCadEmpresa
-  Left = 79
-  Top = 70
+  Left = 124
+  Top = 85
   Width = 1147
   Height = 609
   Caption = 'Cadastro de Empresa'
@@ -10,7 +10,9 @@ inherited frmCadEmpresa: TfrmCadEmpresa
   TextHeight = 13
   inherited RzPageControl1: TRzPageControl
     Width = 1131
-    Height = 571
+    Height = 570
+    ActivePage = TS_Cadastro
+    TabIndex = 1
     OnChange = RzPageControl1Change
     FixedDimension = 19
     inherited TS_Consulta: TRzTabSheet
@@ -28,7 +30,7 @@ inherited frmCadEmpresa: TfrmCadEmpresa
       end
       inherited SMDBGrid1: TSMDBGrid
         Width = 1127
-        Height = 466
+        Height = 465
         DataSource = DMCadEmpresa.dsConsulta
         ColCount = 9
         Columns = <
@@ -76,7 +78,6 @@ inherited frmCadEmpresa: TfrmCadEmpresa
             FieldName = 'NUM_END'
             Title.Alignment = taCenter
             Title.Caption = 'N'#250'mero'
-            Width = 64
             Visible = True
           end
           item
@@ -105,7 +106,7 @@ inherited frmCadEmpresa: TfrmCadEmpresa
       end
       inherited RzPageControl2: TRzPageControl
         Width = 1127
-        Height = 507
+        Height = 506
         ActivePage = TS_Diretoria
         UseColoredTabs = True
         TabIndex = 1
@@ -113,7 +114,7 @@ inherited frmCadEmpresa: TfrmCadEmpresa
         inherited TS_Dados: TRzTabSheet
           inherited pnlCadastro: TPanel
             Width = 1123
-            Height = 484
+            Height = 483
             object Label2: TLabel
               Left = 79
               Top = 25
@@ -239,7 +240,6 @@ inherited frmCadEmpresa: TfrmCadEmpresa
               Height = 21
               DataField = 'CNPJ_CPF'
               DataSource = DMCadEmpresa.dsEmpresa
-              MaxLength = 18
               TabOrder = 3
               OnExit = DBEdit4Exit
             end
@@ -295,7 +295,6 @@ inherited frmCadEmpresa: TfrmCadEmpresa
               Height = 21
               DataField = 'CEP'
               DataSource = DMCadEmpresa.dsEmpresa
-              MaxLength = 9
               TabOrder = 9
             end
             object DBEdit12: TDBEdit
@@ -360,12 +359,12 @@ inherited frmCadEmpresa: TfrmCadEmpresa
             Left = 0
             Top = 0
             Width = 1123
-            Height = 484
+            Height = 483
             Align = alClient
             TabOrder = 0
             object pnlGridDiretoria: TPanel
               Left = 1
-              Top = 398
+              Top = 397
               Width = 1121
               Height = 85
               Align = alBottom
@@ -434,7 +433,7 @@ inherited frmCadEmpresa: TfrmCadEmpresa
               Left = 51
               Top = 1
               Width = 1071
-              Height = 397
+              Height = 396
               Align = alClient
               Enabled = False
               TabOrder = 1
@@ -465,6 +464,69 @@ inherited frmCadEmpresa: TfrmCadEmpresa
                 Width = 23
                 Height = 13
                 Caption = 'CPF:'
+              end
+              object Label8: TLabel
+                Left = 36
+                Top = 137
+                Width = 47
+                Height = 13
+                Caption = 'Endere'#231'o:'
+              end
+              object Label17: TLabel
+                Left = 371
+                Top = 137
+                Width = 38
+                Height = 13
+                Caption = 'N'#250'mero:'
+              end
+              object Label18: TLabel
+                Left = 601
+                Top = 137
+                Width = 65
+                Height = 13
+                Caption = 'Complemento:'
+              end
+              object Label19: TLabel
+                Left = 55
+                Top = 164
+                Width = 28
+                Height = 13
+                Caption = 'Bairro:'
+              end
+              object Label20: TLabel
+                Left = 375
+                Top = 164
+                Width = 34
+                Height = 13
+                Caption = 'Cidade:'
+              end
+              object Label21: TLabel
+                Left = 651
+                Top = 164
+                Width = 15
+                Height = 13
+                Caption = 'UF:'
+              end
+              object Label22: TLabel
+                Left = 61
+                Top = 192
+                Width = 22
+                Height = 13
+                Caption = 'CEP:'
+              end
+              object Label23: TLabel
+                Left = 328
+                Top = 192
+                Width = 82
+                Height = 13
+                Caption = 'Fone (DDD + N'#186'):'
+              end
+              object Label24: TLabel
+                Left = 57
+                Top = 219
+                Width = 26
+                Height = 13
+                Caption = 'Email:'
               end
               object DBEdit36: TDBEdit
                 Left = 86
@@ -502,7 +564,7 @@ inherited frmCadEmpresa: TfrmCadEmpresa
               object RxDBLookupCombo2: TRxDBLookupCombo
                 Left = 86
                 Top = 27
-                Width = 166
+                Width = 162
                 Height = 21
                 DropDownCount = 8
                 DataField = 'ID_EXERCICIO'
@@ -524,12 +586,107 @@ inherited frmCadEmpresa: TfrmCadEmpresa
                 ValueChecked = 'True'
                 ValueUnchecked = 'False'
               end
+              object DBEdit15: TDBEdit
+                Left = 86
+                Top = 129
+                Width = 271
+                Height = 21
+                DataField = 'ENDERECO'
+                DataSource = DMCadEmpresa.dsEmpresa_Diretoria
+                TabOrder = 5
+              end
+              object DBEdit16: TDBEdit
+                Left = 417
+                Top = 129
+                Width = 63
+                Height = 21
+                DataField = 'NUM_END'
+                DataSource = DMCadEmpresa.dsEmpresa_Diretoria
+                TabOrder = 6
+              end
+              object DBEdit17: TDBEdit
+                Left = 673
+                Top = 129
+                Width = 119
+                Height = 21
+                DataField = 'COMPLEMENTO_END'
+                DataSource = DMCadEmpresa.dsEmpresa_Diretoria
+                TabOrder = 7
+              end
+              object DBEdit18: TDBEdit
+                Left = 86
+                Top = 156
+                Width = 271
+                Height = 21
+                DataField = 'BAIRRO'
+                DataSource = DMCadEmpresa.dsEmpresa_Diretoria
+                TabOrder = 8
+              end
+              object DBEdit19: TDBEdit
+                Left = 673
+                Top = 156
+                Width = 119
+                Height = 21
+                DataField = 'UF'
+                DataSource = DMCadEmpresa.dsEmpresa_Diretoria
+                TabOrder = 9
+              end
+              object DBEdit20: TDBEdit
+                Left = 86
+                Top = 184
+                Width = 119
+                Height = 21
+                DataField = 'CEP'
+                DataSource = DMCadEmpresa.dsEmpresa_Diretoria
+                TabOrder = 10
+              end
+              object DBEdit21: TDBEdit
+                Left = 418
+                Top = 184
+                Width = 31
+                Height = 21
+                DataField = 'DDD'
+                DataSource = DMCadEmpresa.dsEmpresa_Diretoria
+                MaxLength = 2
+                TabOrder = 11
+              end
+              object DBEdit22: TDBEdit
+                Left = 458
+                Top = 184
+                Width = 119
+                Height = 21
+                DataField = 'TELEFONE'
+                DataSource = DMCadEmpresa.dsEmpresa_Diretoria
+                TabOrder = 12
+              end
+              object DBEdit23: TDBEdit
+                Left = 86
+                Top = 211
+                Width = 271
+                Height = 21
+                DataField = 'EMAIL'
+                DataSource = DMCadEmpresa.dsEmpresa_Diretoria
+                TabOrder = 13
+              end
+              object RxDBLookupCombo3: TRxDBLookupCombo
+                Left = 417
+                Top = 156
+                Width = 215
+                Height = 21
+                DropDownCount = 8
+                DataField = 'ID_CIDADE'
+                DataSource = DMCadEmpresa.dsEmpresa_Diretoria
+                LookupField = 'ID'
+                LookupDisplay = 'NOME'
+                LookupSource = DMCadEmpresa.dsCidade
+                TabOrder = 14
+              end
             end
             object pnlBotaoDiretoria: TPanel
               Left = 1
               Top = 1
               Width = 50
-              Height = 397
+              Height = 396
               Align = alLeft
               Enabled = False
               TabOrder = 2

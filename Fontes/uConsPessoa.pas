@@ -142,7 +142,7 @@ begin
     vOrdem := vOrdem + ' P.NOME';
   if nxPCGeral.ActivePage = ts_Cidade then
   begin
-    vCidade := ' WHERE 0 = 0 ';
+    vCidade := ' WHERE 0 = 0 AND coalesce(p.falecido,' + QuotedStr('N') +') = ' + QuotedStr('N');
     fDMConsPessoa.cdsConsCidade.Close;
     if dbrxCidade.KeyValue > 0 then
     begin
@@ -155,7 +155,7 @@ begin
 
   if nxPCGeral.ActivePage = ts_TipoDeficiencia then
   begin
-    vTipoDeficiencia := ' WHERE 0 = 0';
+    vTipoDeficiencia := ' WHERE 0 = 0 AND coalesce(p.falecido,' + QuotedStr('N') +') = ' + QuotedStr('N');
     fDMConsPessoa.cdsConsTD.Close;
     if dbrxTipoDeficiencia.KeyValue > 0 then
     begin
@@ -168,7 +168,7 @@ begin
 
   if nxPCGeral.ActivePage = ts_Escolaridade then
   begin
-    vEscolaridade := ' WHERE 0 = 0';
+    vEscolaridade := ' WHERE 0 = 0 AND coalesce(p.falecido,' + QuotedStr('N') +') = ' + QuotedStr('N');
     fDMConsPessoa.cdsConsEscolaridade.Close;
     if cbEscolaridade.ItemIndex > -1 then
     begin

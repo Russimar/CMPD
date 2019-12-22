@@ -1,8 +1,8 @@
 object frmConsPessoa: TfrmConsPessoa
-  Left = 18
-  Top = 29
-  Width = 1255
-  Height = 480
+  Left = -8
+  Top = -8
+  Width = 1382
+  Height = 744
   Caption = 'Consulta Geral'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,21 +18,21 @@ object frmConsPessoa: TfrmConsPessoa
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1239
-    Height = 441
+    Width = 1366
+    Height = 705
     Align = alClient
     TabOrder = 0
     object Panel2: TPanel
       Left = 1
       Top = 1
-      Width = 1237
+      Width = 1364
       Height = 102
       Align = alTop
       TabOrder = 0
       object GroupBox1: TGroupBox
         Left = 1
         Top = 1
-        Width = 1043
+        Width = 1170
         Height = 100
         Align = alClient
         Anchors = [akRight]
@@ -212,7 +212,7 @@ object frmConsPessoa: TfrmConsPessoa
         end
       end
       object Panel4: TPanel
-        Left = 1044
+        Left = 1171
         Top = 1
         Width = 192
         Height = 100
@@ -348,15 +348,15 @@ object frmConsPessoa: TfrmConsPessoa
     end
     object Panel3: TPanel
       Left = 1
-      Top = 384
-      Width = 1237
+      Top = 648
+      Width = 1364
       Height = 56
       Align = alBottom
       TabOrder = 1
       object GroupBox3: TGroupBox
         Left = 1
         Top = 1
-        Width = 1235
+        Width = 1362
         Height = 54
         Align = alClient
         Caption = 'Resumo'
@@ -517,10 +517,10 @@ object frmConsPessoa: TfrmConsPessoa
     object nxPCGeral: TNxPageControl
       Left = 1
       Top = 103
-      Width = 1237
-      Height = 281
-      ActivePage = ts_TipoDeficiencia
-      ActivePageIndex = 1
+      Width = 1364
+      Height = 545
+      ActivePage = ts_Cidade
+      ActivePageIndex = 0
       Align = alClient
       TabOrder = 2
       Margin = 0
@@ -538,8 +538,8 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid1: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1237
-          Height = 260
+          Width = 1364
+          Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsCidade
           Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
@@ -622,8 +622,8 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid2: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1237
-          Height = 260
+          Width = 1364
+          Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsTD
           Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
@@ -681,6 +681,7 @@ object frmConsPessoa: TfrmConsPessoa
               FieldName = 'FONE2'
               Title.Alignment = taCenter
               Title.Caption = 'Telefone2'
+              Width = 64
               Visible = True
             end
             item
@@ -712,8 +713,8 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid3: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1237
-          Height = 260
+          Width = 1364
+          Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsEscolaridade
           Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
@@ -786,8 +787,8 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid4: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1237
-          Height = 260
+          Width = 1364
+          Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsPasseLivre
           Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
@@ -882,8 +883,8 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid5: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1237
-          Height = 260
+          Width = 1364
+          Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsEstacionamento
           Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]

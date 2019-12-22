@@ -295,11 +295,6 @@ type
     sdsPessoaBeneficioNUMERO_BENEFICIO: TStringField;
     sdsPessoaBeneficioNOME_BENEFICIO: TStringField;
     cdsPessoasdsPessoaBeneficio: TDataSetField;
-    cdsPessoaBeneficioCODIGO: TIntegerField;
-    cdsPessoaBeneficioITEM: TIntegerField;
-    cdsPessoaBeneficioID_BENEFICIO: TIntegerField;
-    cdsPessoaBeneficioNUMERO_BENEFICIO: TStringField;
-    cdsPessoaBeneficioNOME_BENEFICIO: TStringField;
     frxConsPessoa: TfrxDBDataset;
     sdsCidadeConsulta: TSQLDataSet;
     dspCidadeConsulta: TDataSetProvider;
@@ -310,6 +305,41 @@ type
     cdsCidadeConsultaUF: TStringField;
     cdsPessoaRendaNome_Parentesco: TStringField;
     cdsPessoaAcompNome_Parentesco: TStringField;
+    sdsPessoa_Cid: TSQLDataSet;
+    cdsPessoa_Cid: TClientDataSet;
+    dsPessoa_Cid: TDataSource;
+    sdsPessoa_CidCODIGO: TIntegerField;
+    sdsPessoa_CidID_CID: TIntegerField;
+    sdsPessoa_CidDATA_INICIO: TDateField;
+    sdsPessoa_CidDATA_FINAL: TDateField;
+    sdsPessoa_CidPRINCIPAL: TStringField;
+    cdsPessoaBeneficioCODIGO: TIntegerField;
+    cdsPessoaBeneficioITEM: TIntegerField;
+    cdsPessoaBeneficioID_BENEFICIO: TIntegerField;
+    cdsPessoaBeneficioNUMERO_BENEFICIO: TStringField;
+    cdsPessoaBeneficioNOME_BENEFICIO: TStringField;
+    cdsPessoasdsPessoa_Cid: TDataSetField;
+    cdsPessoa_CidCODIGO: TIntegerField;
+    cdsPessoa_CidID_CID: TIntegerField;
+    cdsPessoa_CidDATA_INICIO: TDateField;
+    cdsPessoa_CidDATA_FINAL: TDateField;
+    cdsPessoa_CidPRINCIPAL: TStringField;
+    cdsPessoa_CidNome_Cid: TStringField;
+    cdsPessoa_CidCID: TStringField;
+    sdsPessoaORGAO_EMISSOR: TStringField;
+    cdsPessoaORGAO_EMISSOR: TStringField;
+    sdsPessoaCERTIDAO_NASCIMENTO: TStringField;
+    cdsPessoaCERTIDAO_NASCIMENTO: TStringField;
+    sdsPessoaFALECIDO: TStringField;
+    sdsPessoaID_EMPRESA: TIntegerField;
+    cdsPessoaFALECIDO: TStringField;
+    cdsPessoaID_EMPRESA: TIntegerField;
+    sdsEmpresa: TSQLDataSet;
+    dspEmpresa: TDataSetProvider;
+    cdsEmpresa: TClientDataSet;
+    dsEmpresa: TDataSource;
+    cdsEmpresaID: TIntegerField;
+    cdsEmpresaNOME_FANTASIA: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsPessoaNewRecord(DataSet: TDataSet);
     procedure cdsPessoaCalcFields(DataSet: TDataSet);
@@ -318,6 +348,7 @@ type
       var TableName: String);
     procedure cdsPessoaRendaCalcFields(DataSet: TDataSet);
     procedure cdsPessoaAcompCalcFields(DataSet: TDataSet);
+    procedure cdsPessoa_CidCalcFields(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -338,6 +369,8 @@ type
     procedure prc_Abrir_Renda(Codigo: Integer);
     procedure prc_Inserir_Beneficio;
     procedure prc_Abrir_Beneficio(Codigo: Integer);
+    procedure prc_Inserir_CID;
+    procedure prc_Abrir_CID(Codigo: Integer);
 
     { Public declarations }
   end;
@@ -452,6 +485,7 @@ begin
   cdsPessoaPASSE_MUNICIPAL.AsString := 'N';
   cdsPessoaPASSE_INTERMUNICIPAL.AsString := 'N';
   cdsPessoaPASSE_INTERESTADUAL.AsString := 'N';
+  cdsPessoaFalecido.AsString := 'N';
 end;
 
 procedure TDMPessoa.prc_Inserir_Acomp;
@@ -550,6 +584,29 @@ procedure TDMPessoa.cdsPessoaAcompCalcFields(DataSet: TDataSet);
 begin
   if cdsPessoaAcompID_PARENTESCO.AsInteger > 0 then
     cdsPessoaAcompNome_Parentesco.AsString := SQLLocate('PARENTESCO','ID','DESCRICAO',cdsPessoaAcompID_PARENTESCO.AsString);
+end;
+
+procedure TDMPessoa.cdsPessoa_CidCalcFields(DataSet: TDataSet);
+begin
+  if cdsPessoa_CidID_CID.AsInteger > 0 then
+  begin
+    cdsPessoa_CidNome_Cid.AsString := SQLLocate('TAB_CID','ID','DESCRICAO',cdsPessoa_CidID_CID.AsString);
+    cdsPessoa_CidCID.AsString := SQLLocate('TAB_CID','ID','CID',cdsPessoa_CidID_CID.AsString);
+  end;
+end;
+
+procedure TDMPessoa.prc_Abrir_CID(Codigo: Integer);
+begin
+  cdsPessoa_Cid.Close;
+  sdsPessoa_Cid.ParamByName('Codigo').AsInteger := Codigo;
+  cdsPessoa_Cid.Open;
+end;
+
+procedure TDMPessoa.prc_Inserir_CID;
+begin
+  cdsPessoa_Cid.Last;
+  cdsPessoa_CID.Insert;
+  cdsPessoa_CidCODIGO.AsInteger := cdsPessoaCODIGO.AsInteger;
 end;
 
 end.

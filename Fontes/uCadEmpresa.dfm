@@ -1,6 +1,6 @@
 inherited frmCadEmpresa: TfrmCadEmpresa
-  Left = 124
-  Top = 85
+  Left = 265
+  Top = 60
   Width = 1147
   Height = 609
   Caption = 'Cadastro de Empresa'
@@ -11,8 +11,6 @@ inherited frmCadEmpresa: TfrmCadEmpresa
   inherited RzPageControl1: TRzPageControl
     Width = 1131
     Height = 570
-    ActivePage = TS_Cadastro
-    TabIndex = 1
     OnChange = RzPageControl1Change
     FixedDimension = 19
     inherited TS_Consulta: TRzTabSheet
@@ -107,9 +105,7 @@ inherited frmCadEmpresa: TfrmCadEmpresa
       inherited RzPageControl2: TRzPageControl
         Width = 1127
         Height = 506
-        ActivePage = TS_Diretoria
         UseColoredTabs = True
-        TabIndex = 1
         FixedDimension = 19
         inherited TS_Dados: TRzTabSheet
           inherited pnlCadastro: TPanel
@@ -468,63 +464,63 @@ inherited frmCadEmpresa: TfrmCadEmpresa
               object Label8: TLabel
                 Left = 36
                 Top = 137
-                Width = 47
+                Width = 49
                 Height = 13
                 Caption = 'Endere'#231'o:'
               end
               object Label17: TLabel
                 Left = 371
                 Top = 137
-                Width = 38
+                Width = 40
                 Height = 13
                 Caption = 'N'#250'mero:'
               end
               object Label18: TLabel
                 Left = 601
                 Top = 137
-                Width = 65
+                Width = 67
                 Height = 13
                 Caption = 'Complemento:'
               end
               object Label19: TLabel
                 Left = 55
                 Top = 164
-                Width = 28
+                Width = 30
                 Height = 13
                 Caption = 'Bairro:'
               end
               object Label20: TLabel
                 Left = 375
                 Top = 164
-                Width = 34
+                Width = 36
                 Height = 13
                 Caption = 'Cidade:'
               end
               object Label21: TLabel
                 Left = 651
                 Top = 164
-                Width = 15
+                Width = 17
                 Height = 13
                 Caption = 'UF:'
               end
               object Label22: TLabel
                 Left = 61
                 Top = 192
-                Width = 22
+                Width = 24
                 Height = 13
                 Caption = 'CEP:'
               end
               object Label23: TLabel
                 Left = 328
                 Top = 192
-                Width = 82
+                Width = 84
                 Height = 13
                 Caption = 'Fone (DDD + N'#186'):'
               end
               object Label24: TLabel
                 Left = 57
                 Top = 219
-                Width = 26
+                Width = 28
                 Height = 13
                 Caption = 'Email:'
               end

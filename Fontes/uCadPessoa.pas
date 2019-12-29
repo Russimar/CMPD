@@ -315,6 +315,10 @@ procedure TfrmCad_Pessoa.btnInserirClick(Sender: TObject);
 begin
   inherited;
   prc_Inserir_Registro;
+  prc_Habilita_Acomp(Sender);
+  prc_Habilita_Renda(Sender);
+  prc_Habilita_Beneficio(Sender);
+  prc_Habilita_CID(Sender);
 end;
 
 procedure TfrmCad_Pessoa.prc_Gravar_Registro;

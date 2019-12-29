@@ -1,7 +1,8 @@
 inherited frmCad_Pessoa: TfrmCad_Pessoa
-  Top = 5
-  Width = 1077
-  Height = 726
+  Left = -8
+  Top = -8
+  Width = 1382
+  Height = 744
   Caption = 'Cadastro de Pessoas'
   OldCreateOrder = True
   OnShow = FormShow
@@ -14,28 +15,26 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
     Height = 13
   end
   inherited RzPageControl1: TRzPageControl
-    Width = 1061
-    Height = 687
-    ActivePage = TS_Cadastro
-    TabIndex = 1
+    Width = 1366
+    Height = 705
     OnChange = RzPageControl1Change
     FixedDimension = 19
     inherited TS_Consulta: TRzTabSheet
       inherited pnlConsulta: TPanel
-        Width = 1057
+        Width = 1362
         inherited btnExcluir: TNxButton
           OnClick = btnExcluirClick
         end
       end
       inherited pnlPesquisa: TPanel
-        Width = 1057
+        Width = 1362
         inherited NxButton1: TNxButton
           OnClick = NxButton1Click
         end
       end
       inherited SMDBGrid1: TSMDBGrid
-        Width = 1057
-        Height = 582
+        Width = 1362
+        Height = 600
         DataSource = DMPessoa.dsConsulta
         ColCount = 7
         Columns = <
@@ -89,7 +88,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
     end
     inherited TS_Cadastro: TRzTabSheet
       inherited Panel3: TPanel
-        Width = 1057
+        Width = 1362
         Height = 43
         inherited btnConfirmar: TNxButton
           OnClick = btnConfirmarClick
@@ -97,14 +96,16 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
       end
       inherited RzPageControl2: TRzPageControl
         Top = 43
-        Width = 1057
-        Height = 598
+        Width = 1362
+        Height = 616
+        ActivePage = TS_Renda
         UseColoredTabs = True
+        TabIndex = 1
         FixedDimension = 19
         inherited TS_Dados: TRzTabSheet
           inherited pnlCadastro: TPanel
-            Width = 1053
-            Height = 575
+            Width = 1358
+            Height = 593
             object Label2: TLabel
               Left = 66
               Top = 27
@@ -1073,21 +1074,21 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
           object pnlOutras: TPanel
             Left = 0
             Top = 0
-            Width = 1053
-            Height = 575
+            Width = 1358
+            Height = 593
             Align = alClient
             TabOrder = 0
             object pnlGridRenda: TPanel
               Left = 1
-              Top = 489
-              Width = 1051
+              Top = 507
+              Width = 1356
               Height = 85
               Align = alBottom
               TabOrder = 0
               object DBGrid2: TDBGrid
                 Left = 1
                 Top = 1
-                Width = 1049
+                Width = 1354
                 Height = 83
                 Align = alClient
                 DataSource = DMPessoa.dsPessoaRenda
@@ -1156,8 +1157,8 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
             object pnlRenda: TPanel
               Left = 51
               Top = 1
-              Width = 1001
-              Height = 488
+              Width = 1306
+              Height = 506
               Align = alClient
               Enabled = False
               TabOrder = 1
@@ -1270,7 +1271,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
               Left = 1
               Top = 1
               Width = 50
-              Height = 488
+              Height = 506
               Align = alLeft
               Enabled = False
               TabOrder = 2
@@ -1601,8 +1602,8 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
           object pnlAcomp: TPanel
             Left = 50
             Top = 0
-            Width = 1003
-            Height = 490
+            Width = 1308
+            Height = 508
             Align = alClient
             Enabled = False
             TabOrder = 0
@@ -1868,7 +1869,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
             Left = 0
             Top = 0
             Width = 50
-            Height = 490
+            Height = 508
             Align = alLeft
             Enabled = False
             TabOrder = 1
@@ -2194,8 +2195,8 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
           end
           object pnlGridAcomp: TPanel
             Left = 0
-            Top = 490
-            Width = 1053
+            Top = 508
+            Width = 1358
             Height = 85
             Align = alBottom
             TabOrder = 2
@@ -2266,14 +2267,14 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
           object pnlGeralBeneficio: TPanel
             Left = 0
             Top = 0
-            Width = 1053
-            Height = 575
+            Width = 1358
+            Height = 593
             Align = alClient
             TabOrder = 0
             object pnlGridBeneficio: TPanel
               Left = 1
-              Top = 489
-              Width = 1051
+              Top = 507
+              Width = 1356
               Height = 85
               Align = alBottom
               TabOrder = 0
@@ -2319,8 +2320,8 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
             object pnlBeneficio: TPanel
               Left = 51
               Top = 1
-              Width = 1001
-              Height = 488
+              Width = 1306
+              Height = 506
               Align = alClient
               Enabled = False
               TabOrder = 1
@@ -2381,7 +2382,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
               Left = 1
               Top = 1
               Width = 50
-              Height = 488
+              Height = 506
               Align = alLeft
               Enabled = False
               TabOrder = 2
@@ -2713,7 +2714,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
             Left = 0
             Top = 0
             Width = 50
-            Height = 490
+            Height = 508
             Align = alLeft
             Enabled = False
             TabOrder = 0
@@ -3040,8 +3041,8 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
           object pnlCID: TPanel
             Left = 50
             Top = 0
-            Width = 1003
-            Height = 490
+            Width = 1308
+            Height = 508
             Align = alClient
             Enabled = False
             TabOrder = 1
@@ -3114,8 +3115,8 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
           end
           object Panel4: TPanel
             Left = 0
-            Top = 490
-            Width = 1053
+            Top = 508
+            Width = 1358
             Height = 85
             Align = alBottom
             TabOrder = 2
@@ -3145,6 +3146,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
                   FieldName = 'Nome_Cid'
                   Title.Alignment = taCenter
                   Title.Caption = 'Descri'#231#227'o CID'
+                  Width = 64
                   Visible = True
                 end
                 item
@@ -3175,8 +3177,8 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
       end
       object pnlCor: TPanel
         Left = 0
-        Top = 641
-        Width = 1057
+        Top = 659
+        Width = 1362
         Height = 23
         Align = alBottom
         TabOrder = 2

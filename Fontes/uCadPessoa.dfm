@@ -17,6 +17,8 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
   inherited RzPageControl1: TRzPageControl
     Width = 1366
     Height = 705
+    ActivePage = TS_Cadastro
+    TabIndex = 1
     OnChange = RzPageControl1Change
     FixedDimension = 19
     inherited TS_Consulta: TRzTabSheet
@@ -98,9 +100,7 @@ inherited frmCad_Pessoa: TfrmCad_Pessoa
         Top = 43
         Width = 1362
         Height = 616
-        ActivePage = TS_Renda
         UseColoredTabs = True
-        TabIndex = 1
         FixedDimension = 19
         inherited TS_Dados: TRzTabSheet
           inherited pnlCadastro: TPanel

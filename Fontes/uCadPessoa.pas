@@ -392,6 +392,7 @@ begin
       fDMCadPessoa.prc_Abrir_Acomp(fDMCadPessoa.cdsConsultaCODIGO.AsInteger);
       fDMCadPessoa.prc_Abrir_Renda(fDMCadPessoa.cdsConsultaCODIGO.AsInteger);
       fDMCadPessoa.prc_Abrir_Beneficio(fDMCadPessoa.cdsConsultaCODIGO.AsInteger);
+      fDMCadPessoa.prc_Abrir_CID(fDMCadPessoa.cdsConsultaCODIGO.AsInteger);
       fDMCadPessoa.prc_Localizar(fDMCadPessoa.cdsConsultaCODIGO.AsInteger);
       DateTimePicker1.Date := fDMCadPessoa.cdsPessoaDTCADASTRO.AsDateTime;
       DateTimePicker2.Date := fDMCadPessoa.cdsPessoaDTALTERACAO.AsDateTime;
@@ -412,6 +413,8 @@ begin
       pnlCor.Color := clGreen;
     5:
       pnlCor.Color := clWhite;
+    6:
+      pnlCor.Color := clSkyBlue;
   end;
 
 end;

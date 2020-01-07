@@ -443,6 +443,8 @@ begin
   cdsPessoaRenda.Open;
   cdsPessoaBeneficio.Close;
   cdsPessoaBeneficio.Open;
+  cdsPessoa_Cid.Close;
+  cdsPessoa_Cid.Open;
 end;
 
 procedure TDMPessoa.prc_Alterar;

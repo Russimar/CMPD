@@ -27,11 +27,6 @@ type
     GroupBox3: TGroupBox;
     Label3: TLabel;
     lblTotalGeral: TLabel;
-    RxLabel1: TRxLabel;
-    RxLabel2: TRxLabel;
-    RxLabel3: TRxLabel;
-    RxLabel4: TRxLabel;
-    RxLabel5: TRxLabel;
     lblAuditiva: TRxLabel;
     lblVisual: TRxLabel;
     lblMental: TRxLabel;
@@ -55,6 +50,8 @@ type
     SMDBGrid4: TSMDBGrid;
     ts_Estacionamento: TNxTabSheet;
     SMDBGrid5: TSMDBGrid;
+    RxLabel1: TRxLabel;
+    RxLabel2: TRxLabel;
     procedure FormShow(Sender: TObject);
     procedure dbcbxUfChange(Sender: TObject);
     procedure dbcbxUfExit(Sender: TObject);
@@ -217,15 +214,19 @@ begin
     begin
       case fDMConsPessoa.qResumoID.AsInteger of
         1:
-          lblAuditiva.Caption := IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
+          lblAuditiva.Caption := fDMConsPessoa.qResumoNOME.AsString + ': ' + IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
         2:
-          lblVisual.Caption := IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
+          lblVisual.Caption := fDMConsPessoa.qResumoNOME.AsString + ': ' + IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
         3:
-          lblMental.Caption := IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
+          lblMental.Caption := fDMConsPessoa.qResumoNOME.AsString + ': ' + IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
         4:
-          lblFisica.Caption := IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
+          lblFisica.Caption := fDMConsPessoa.qResumoNOME.AsString + ': ' + IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
         5:
-          lblMultipla.Caption := IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
+          lblMultipla.Caption := fDMConsPessoa.qResumoNOME.AsString + ': ' + IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
+        6:
+          lblMultipla.Caption := fDMConsPessoa.qResumoNOME.AsString + ': ' + IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
+        7:
+          lblMultipla.Caption := fDMConsPessoa.qResumoNOME.AsString + ': ' + IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
       end;
       vTotal := vTotal + fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger;
       fDMConsPessoa.qResumo.Next;

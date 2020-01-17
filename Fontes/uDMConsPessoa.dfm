@@ -156,6 +156,7 @@ object DMConsPessoa: TDMConsPessoa
       'SELECT COUNT(ID_DEFICIENCIA) TOTAL_DEFICIENCIA, D.NOME, D.ID'
       'FROM PESSOA P'
       'LEFT JOIN DEFICIENCIA D ON P.ID_DEFICIENCIA = D.ID'
+      'WHERE P.FALECIDO = '#39'N'#39
       'GROUP BY P.ID_DEFICIENCIA, D.NOME, D.ID  ')
     SQLConnection = dmDatabase.scoPrincipal
     Left = 489

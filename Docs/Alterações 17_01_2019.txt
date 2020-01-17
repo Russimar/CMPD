@@ -1,0 +1,1 @@
+insert into deficiencia (id,nome) values (7, 'TEA');

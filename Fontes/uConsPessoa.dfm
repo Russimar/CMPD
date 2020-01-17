@@ -1,7 +1,7 @@
 object frmConsPessoa: TfrmConsPessoa
   Left = -8
   Top = -8
-  Width = 1382
+  Width = 1036
   Height = 744
   Caption = 'Consulta Geral'
   Color = clBtnFace
@@ -18,21 +18,21 @@ object frmConsPessoa: TfrmConsPessoa
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1366
+    Width = 1020
     Height = 705
     Align = alClient
     TabOrder = 0
     object Panel2: TPanel
       Left = 1
       Top = 1
-      Width = 1364
+      Width = 1018
       Height = 102
       Align = alTop
       TabOrder = 0
       object GroupBox1: TGroupBox
         Left = 1
         Top = 1
-        Width = 1170
+        Width = 824
         Height = 100
         Align = alClient
         Anchors = [akRight]
@@ -212,7 +212,7 @@ object frmConsPessoa: TfrmConsPessoa
         end
       end
       object Panel4: TPanel
-        Left = 1171
+        Left = 825
         Top = 1
         Width = 192
         Height = 100
@@ -349,23 +349,27 @@ object frmConsPessoa: TfrmConsPessoa
     object Panel3: TPanel
       Left = 1
       Top = 648
-      Width = 1364
+      Width = 1018
       Height = 56
       Align = alBottom
       TabOrder = 1
       object GroupBox3: TGroupBox
         Left = 1
         Top = 1
-        Width = 1362
+        Width = 1016
         Height = 54
         Align = alClient
         Caption = 'Resumo'
         TabOrder = 0
+        DesignSize = (
+          1016
+          54)
         object Label3: TLabel
-          Left = 805
+          Left = 827
           Top = 19
           Width = 119
           Height = 20
+          Anchors = [akTop, akRight]
           Caption = 'Total Pessoas:'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
@@ -375,10 +379,11 @@ object frmConsPessoa: TfrmConsPessoa
           ParentFont = False
         end
         object lblTotalGeral: TLabel
-          Left = 936
+          Left = 958
           Top = 19
           Width = 26
           Height = 20
+          Anchors = [akTop, akRight]
           Caption = '.....'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
@@ -387,76 +392,12 @@ object frmConsPessoa: TfrmConsPessoa
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object RxLabel1: TRxLabel
+        object lblAuditiva: TRxLabel
           Left = 21
           Top = 23
-          Width = 63
+          Width = 8
           Height = 16
-          Caption = 'Auditiva:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -13
-          Font.Name = 'MS Sans Serif'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object RxLabel2: TRxLabel
-          Left = 491
-          Top = 23
-          Width = 49
-          Height = 16
-          Caption = 'F'#237'sica:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -13
-          Font.Name = 'MS Sans Serif'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object RxLabel3: TRxLabel
-          Left = 335
-          Top = 23
-          Width = 53
-          Height = 16
-          Caption = 'Mental:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -13
-          Font.Name = 'MS Sans Serif'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object RxLabel4: TRxLabel
-          Left = 178
-          Top = 23
-          Width = 50
-          Height = 16
-          Caption = 'Visual:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -13
-          Font.Name = 'MS Sans Serif'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object RxLabel5: TRxLabel
-          Left = 648
-          Top = 23
-          Width = 61
-          Height = 16
-          Caption = 'Multipla:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -13
-          Font.Name = 'MS Sans Serif'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object lblAuditiva: TRxLabel
-          Left = 85
-          Top = 23
-          Width = 7
-          Height = 16
+          Caption = '-'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
           Font.Height = -13
@@ -465,10 +406,11 @@ object frmConsPessoa: TfrmConsPessoa
           ParentFont = False
         end
         object lblVisual: TRxLabel
-          Left = 232
+          Left = 178
           Top = 23
-          Width = 7
+          Width = 8
           Height = 16
+          Caption = '-'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
           Font.Height = -13
@@ -477,10 +419,11 @@ object frmConsPessoa: TfrmConsPessoa
           ParentFont = False
         end
         object lblMental: TRxLabel
-          Left = 391
+          Left = 335
           Top = 23
-          Width = 7
+          Width = 8
           Height = 16
+          Caption = '-'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
           Font.Height = -13
@@ -489,10 +432,11 @@ object frmConsPessoa: TfrmConsPessoa
           ParentFont = False
         end
         object lblFisica: TRxLabel
-          Left = 544
+          Left = 491
           Top = 23
-          Width = 7
+          Width = 8
           Height = 16
+          Caption = '-'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
           Font.Height = -13
@@ -501,10 +445,37 @@ object frmConsPessoa: TfrmConsPessoa
           ParentFont = False
         end
         object lblMultipla: TRxLabel
-          Left = 711
+          Left = 648
           Top = 23
-          Width = 7
+          Width = 8
           Height = 16
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -13
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RxLabel1: TRxLabel
+          Left = 790
+          Top = 23
+          Width = 8
+          Height = 16
+          Caption = '-'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -13
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RxLabel2: TRxLabel
+          Left = 920
+          Top = 23
+          Width = 8
+          Height = 16
+          Caption = '-'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
           Font.Height = -13
@@ -517,7 +488,7 @@ object frmConsPessoa: TfrmConsPessoa
     object nxPCGeral: TNxPageControl
       Left = 1
       Top = 103
-      Width = 1364
+      Width = 1018
       Height = 545
       ActivePage = ts_Cidade
       ActivePageIndex = 0
@@ -538,7 +509,7 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid1: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1364
+          Width = 1018
           Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsCidade
@@ -622,7 +593,7 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid2: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1364
+          Width = 1018
           Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsTD
@@ -713,7 +684,7 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid3: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1364
+          Width = 1018
           Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsEscolaridade
@@ -787,7 +758,7 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid4: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1364
+          Width = 1018
           Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsPasseLivre
@@ -883,7 +854,7 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid5: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1364
+          Width = 1018
           Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsEstacionamento

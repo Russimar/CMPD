@@ -50,8 +50,8 @@ type
     SMDBGrid4: TSMDBGrid;
     ts_Estacionamento: TNxTabSheet;
     SMDBGrid5: TSMDBGrid;
-    RxLabel1: TRxLabel;
-    RxLabel2: TRxLabel;
+    lblIntelectual: TRxLabel;
+    lblTEA: TRxLabel;
     procedure FormShow(Sender: TObject);
     procedure dbcbxUfChange(Sender: TObject);
     procedure dbcbxUfExit(Sender: TObject);
@@ -224,9 +224,9 @@ begin
         5:
           lblMultipla.Caption := fDMConsPessoa.qResumoNOME.AsString + ': ' + IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
         6:
-          lblMultipla.Caption := fDMConsPessoa.qResumoNOME.AsString + ': ' + IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
+          lblIntelectual.Caption := fDMConsPessoa.qResumoNOME.AsString + ': ' + IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
         7:
-          lblMultipla.Caption := fDMConsPessoa.qResumoNOME.AsString + ': ' + IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
+          lblTEA.Caption := fDMConsPessoa.qResumoNOME.AsString + ': ' + IntToStr(fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger);
       end;
       vTotal := vTotal + fDMConsPessoa.qResumoTOTAL_DEFICIENCIA.AsInteger;
       fDMConsPessoa.qResumo.Next;

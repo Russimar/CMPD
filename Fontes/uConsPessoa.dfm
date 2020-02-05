@@ -1,7 +1,7 @@
 object frmConsPessoa: TfrmConsPessoa
   Left = -8
   Top = -8
-  Width = 1036
+  Width = 1382
   Height = 744
   Caption = 'Consulta Geral'
   Color = clBtnFace
@@ -18,21 +18,21 @@ object frmConsPessoa: TfrmConsPessoa
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1020
+    Width = 1366
     Height = 705
     Align = alClient
     TabOrder = 0
     object Panel2: TPanel
       Left = 1
       Top = 1
-      Width = 1018
+      Width = 1364
       Height = 102
       Align = alTop
       TabOrder = 0
       object GroupBox1: TGroupBox
         Left = 1
         Top = 1
-        Width = 824
+        Width = 1170
         Height = 100
         Align = alClient
         Anchors = [akRight]
@@ -205,14 +205,13 @@ object frmConsPessoa: TfrmConsPessoa
             DropDownCount = 8
             LookupField = 'ID'
             LookupDisplay = 'NOME_FANTASIA'
-            LookupSource = DMConsPessoa.dsConsEmpresa
             TabOrder = 0
             OnExit = dbrxEmpresaExit
           end
         end
       end
       object Panel4: TPanel
-        Left = 825
+        Left = 1171
         Top = 1
         Width = 192
         Height = 100
@@ -349,23 +348,23 @@ object frmConsPessoa: TfrmConsPessoa
     object Panel3: TPanel
       Left = 1
       Top = 648
-      Width = 1018
+      Width = 1364
       Height = 56
       Align = alBottom
       TabOrder = 1
       object GroupBox3: TGroupBox
         Left = 1
         Top = 1
-        Width = 1016
+        Width = 1362
         Height = 54
         Align = alClient
         Caption = 'Resumo'
         TabOrder = 0
         DesignSize = (
-          1016
+          1362
           54)
         object Label3: TLabel
-          Left = 827
+          Left = 1173
           Top = 19
           Width = 119
           Height = 20
@@ -379,7 +378,7 @@ object frmConsPessoa: TfrmConsPessoa
           ParentFont = False
         end
         object lblTotalGeral: TLabel
-          Left = 958
+          Left = 1304
           Top = 19
           Width = 26
           Height = 20
@@ -457,7 +456,7 @@ object frmConsPessoa: TfrmConsPessoa
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object RxLabel1: TRxLabel
+        object lblIntelectual: TRxLabel
           Left = 790
           Top = 23
           Width = 8
@@ -470,7 +469,7 @@ object frmConsPessoa: TfrmConsPessoa
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object RxLabel2: TRxLabel
+        object lblTEA: TRxLabel
           Left = 920
           Top = 23
           Width = 8
@@ -488,10 +487,10 @@ object frmConsPessoa: TfrmConsPessoa
     object nxPCGeral: TNxPageControl
       Left = 1
       Top = 103
-      Width = 1018
+      Width = 1364
       Height = 545
-      ActivePage = ts_Cidade
-      ActivePageIndex = 0
+      ActivePage = ts_Estacionamento
+      ActivePageIndex = 4
       Align = alClient
       TabOrder = 2
       Margin = 0
@@ -509,7 +508,7 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid1: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1018
+          Width = 1364
           Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsCidade
@@ -593,7 +592,7 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid2: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1018
+          Width = 1364
           Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsTD
@@ -684,7 +683,7 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid3: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1018
+          Width = 1364
           Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsEscolaridade
@@ -758,7 +757,7 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid4: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1018
+          Width = 1364
           Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsPasseLivre
@@ -854,7 +853,7 @@ object frmConsPessoa: TfrmConsPessoa
         object SMDBGrid5: TSMDBGrid
           Left = 0
           Top = 0
-          Width = 1018
+          Width = 1364
           Height = 524
           Align = alClient
           DataSource = DMConsPessoa.dsConsEstacionamento
@@ -896,13 +895,13 @@ object frmConsPessoa: TfrmConsPessoa
               Expanded = False
               FieldName = 'NOME'
               Title.Caption = 'Nome'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'VAGA_ESP_ESTACIONAMENTO'
               Title.Caption = 'Possui Vaga'
-              Width = 64
               Visible = True
             end
             item

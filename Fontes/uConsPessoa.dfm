@@ -1,6 +1,6 @@
 object frmConsPessoa: TfrmConsPessoa
-  Left = -8
-  Top = -8
+  Left = 4
+  Top = 13
   Width = 1382
   Height = 744
   Caption = 'Consulta Geral'
@@ -67,6 +67,7 @@ object frmConsPessoa: TfrmConsPessoa
             Height = 21
             ItemHeight = 13
             TabOrder = 0
+            OnChange = dbcbxUfChange
             OnExit = cbEscolaridadeExit
             Items.Strings = (
               'AC'
@@ -489,8 +490,8 @@ object frmConsPessoa: TfrmConsPessoa
       Top = 103
       Width = 1364
       Height = 545
-      ActivePage = ts_Estacionamento
-      ActivePageIndex = 4
+      ActivePage = ts_Cidade
+      ActivePageIndex = 0
       Align = alClient
       TabOrder = 2
       Margin = 0
@@ -519,6 +520,7 @@ object frmConsPessoa: TfrmConsPessoa
           TitleFont.Height = -11
           TitleFont.Name = 'MS Sans Serif'
           TitleFont.Style = []
+          OnTitleClick = SMDBGrid1TitleClick
           Flat = False
           BandsFont.Charset = DEFAULT_CHARSET
           BandsFont.Color = clWindowText
@@ -537,7 +539,7 @@ object frmConsPessoa: TfrmConsPessoa
           WidthOfIndicator = 11
           DefaultRowHeight = 17
           ScrollBars = ssHorizontal
-          ColCount = 6
+          ColCount = 7
           RowCount = 2
           Columns = <
             item
@@ -577,6 +579,13 @@ object frmConsPessoa: TfrmConsPessoa
               Title.Alignment = taCenter
               Title.Caption = 'Cidade'
               Width = 173
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'TELEFONE'
+              Title.Alignment = taCenter
+              Title.Caption = 'Telefone'
               Visible = True
             end>
         end
@@ -895,13 +904,13 @@ object frmConsPessoa: TfrmConsPessoa
               Expanded = False
               FieldName = 'NOME'
               Title.Caption = 'Nome'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'VAGA_ESP_ESTACIONAMENTO'
               Title.Caption = 'Possui Vaga'
+              Width = 64
               Visible = True
             end
             item

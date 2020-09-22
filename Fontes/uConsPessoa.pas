@@ -60,6 +60,7 @@ type
     procedure btnImprimirClick(Sender: TObject);
     procedure dbrxEmpresaExit(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure SMDBGrid1TitleClick(Column: TColumn);
   private
     ctCidade, ctTipoDeficiencia, ctEscolaridade, ctPasseLivre, ctEstacionamento: string;
     vTotal: Integer;
@@ -113,7 +114,7 @@ end;
 
 procedure TfrmConsPessoa.dbcbxUfChange(Sender: TObject);
 begin
-  prc_Abrir_Cidade(dbcbxUf.items[dbcbxUf.ItemIndex]);
+//  prc_Abrir_Cidade(dbcbxUf.items[dbcbxUf.ItemIndex]);
 end;
 
 procedure TfrmConsPessoa.dbcbxUfExit(Sender: TObject);
@@ -253,9 +254,13 @@ begin
       MessageDlg('Nenhuma informação encontrada para gerar o relatório', mtInformation, [mbOK], 0);
       Exit;
     end;
-    vIndex := fDMConsPessoa.cdsConsCidade.IndexFieldNames;
-    fDMConsPessoa.cdsConsCidade.IndexFieldNames := 'Cidade';
+    if dbrxCidade.KeyValue = EmptyStr then
+    begin
+      vIndex := fDMConsPessoa.cdsConsCidade.IndexFieldNames;
+      fDMConsPessoa.cdsConsCidade.IndexFieldNames := 'Cidade';
+    end;
     fDMConsPessoa.cdsConsCidade.First;
+    fDMConsPessoa.cdsConsCidade.DisableControls;
 
     vArq := ExtractFilePath(Application.ExeName) + 'Relatorios\PessoaPorCidade.fr3';
     if FileExists(vArq) then
@@ -267,6 +272,7 @@ begin
     end;
     fDMConsPessoa.frxReport1.ShowReport;
     fDMConsPessoa.cdsConsCidade.IndexFieldNames := vIndex;
+    fDMConsPessoa.cdsConsCidade.EnableControls;
   end;
 
   if nxPCGeral.ActivePage = ts_TipoDeficiencia then
@@ -366,6 +372,19 @@ procedure TfrmConsPessoa.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   Action := caFree;
+end;
+
+procedure TfrmConsPessoa.SMDBGrid1TitleClick(Column: TColumn);
+var
+  ColunaOrdenada : String;
+  i : integer;
+begin
+  ColunaOrdenada := Column.FieldName;
+  fDMConsPessoa.cdsConsCidade.IndexFieldNames := Column.FieldName;
+  Column.Title.Color := clBtnShadow;
+  for i := 0 to SMDBGrid1.Columns.Count - 1 do
+    if not (SMDBGrid1.Columns.Items[i] = Column) then
+      SMDBGrid1.Columns.Items[i].Title.Color := clBtnFace;
 end;
 
 end.

@@ -115,7 +115,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=0
 Release=1
-Build=6
+Build=7
 Debug=0
 PreRelease=0
 Special=0
@@ -126,7 +126,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=CBL Informática Ltda
 FileDescription=
-FileVersion=1.0.1.6
+FileVersion=1.0.1.7
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -136,7 +136,6 @@ ProductVersion=1.0.0.2
 Comments=
 [Excluded Packages]
 C:\acbr\Lib\Delphi\LibD7\ACBr_BoletoFC_Fortes.bpl=ACBr - Boleto Impressão em FortesReport - (http://www.projectoacbr.com.br/)
-c:\program files (x86)\borland\delphi7\Projects\Bpl\dclrxbd7.bpl=RX Library BDE Database Components
 [HistoryLists\hlDebugSourcePath]
 Count=2
 Item0=E:\Delphi7\SSFacil\EXE\relatorios\

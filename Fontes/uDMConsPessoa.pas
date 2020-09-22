@@ -81,6 +81,7 @@ type
     frxConsEstacionamento: TfrxDBDataset;
     cdsConsTDNIS: TStringField;
     cdsConsTDFONE2: TStringField;
+    cdsConsCidadeTELEFONE: TStringField;
   private
     { Private declarations }
   public

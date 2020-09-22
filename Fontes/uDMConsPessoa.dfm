@@ -10,7 +10,8 @@ object DMConsPessoa: TDMConsPessoa
     CommandText = 
       'SELECT P.CODIGO, P.NOME,'#13#10'       P.ENDERECO || '#39' '#39' || COALESCE(P' +
       '.NUM_END, '#39#39') || '#39' '#39' || COALESCE(P.COMPLEMENTO_END, '#39#39') ENDERECO' +
-      ', P.BAIRRO,'#13#10'       C.NOME CIDADE'#13#10'FROM PESSOA P'#13#10'LEFT JOIN CIDA' +
+      ', P.BAIRRO,'#13#10'       C.NOME CIDADE, '#39'('#39' || coalesce(P.DDDFONE1, 0' +
+      ') || '#39') '#39' || P.TELEFONE1 TELEFONE'#13#10'FROM PESSOA P'#13#10'LEFT JOIN CIDA' +
       'DE C ON C.ID = P.ID_CIDADE'
     MaxBlobSize = -1
     Params = <>
@@ -49,6 +50,10 @@ object DMConsPessoa: TDMConsPessoa
     object cdsConsCidadeCIDADE: TStringField
       FieldName = 'CIDADE'
       Size = 40
+    end
+    object cdsConsCidadeTELEFONE: TStringField
+      FieldName = 'TELEFONE'
+      Size = 29
     end
   end
   object dsConsCidade: TDataSource
@@ -237,7 +242,8 @@ object DMConsPessoa: TDMConsPessoa
       'NOME=NOME'
       'ENDERECO=ENDERECO'
       'BAIRRO=BAIRRO'
-      'CIDADE=CIDADE')
+      'CIDADE=CIDADE'
+      'TELEFONE=TELEFONE')
     DataSource = dsConsCidade
     BCDToCurrency = False
     Left = 396
@@ -253,7 +259,7 @@ object DMConsPessoa: TDMConsPessoa
     PrintOptions.Printer = 'Padr'#227'o'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43330.540652534700000000
-    ReportOptions.LastChange = 43820.294541759260000000
+    ReportOptions.LastChange = 44086.411200081020000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -264,8 +270,8 @@ object DMConsPessoa: TDMConsPessoa
     Top = 191
     Datasets = <
       item
-        DataSet = frxConsTD
-        DataSetName = 'frxConsTD'
+        DataSet = frxConsCidade
+        DataSetName = 'frxConsCidade'
       end
       item
         DataSet = frxEmpresa
@@ -322,11 +328,11 @@ object DMConsPessoa: TDMConsPessoa
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Memo.UTF8 = (
-            'Defici'#195#170'ncia')
+            'Endere'#195#167'o')
           ParentFont = False
         end
         object Memo8: TfrxMemoView
-          Left = 445.190476190000000000
+          Left = 535.619047620000000000
           Top = 108.009276190000000000
           Width = 56.393011900000000000
           Height = 15.118120000000000000
@@ -336,13 +342,13 @@ object DMConsPessoa: TDMConsPessoa
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Memo.UTF8 = (
-            'Fone(s)')
+            'Bairro')
           ParentFont = False
         end
         object Line1: TfrxLineView
-          Left = 3.571428570000000000
-          Top = 125.919294760000000000
-          Width = 713.303339520000000000
+          Left = 6.571428570000000000
+          Top = 127.919294760000000000
+          Width = 709.523809520000000000
           Color = clBlack
           Frame.Style = fsDot
           Diagonal = True
@@ -370,7 +376,7 @@ object DMConsPessoa: TDMConsPessoa
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsUnderline]
           Memo.UTF8 = (
-            'Relat'#195#179'rio de Pessoas Por Defici'#195#170'ncia')
+            'Relat'#195#179'rio de Pessoas Por Cidade')
           ParentFont = False
         end
         object Date: TfrxMemoView
@@ -436,7 +442,7 @@ object DMConsPessoa: TDMConsPessoa
         object Memo11: TfrxMemoView
           Left = 2.857142860000000000
           Top = 107.769016670000000000
-          Width = 34.015770000000000000
+          Width = 45.354360000000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -447,9 +453,9 @@ object DMConsPessoa: TDMConsPessoa
             'Cod')
           ParentFont = False
         end
-        object Memo14: TfrxMemoView
-          Left = 624.190476190000000000
-          Top = 108.721397620000000000
+        object Memo13: TfrxMemoView
+          Left = 638.740570000000000000
+          Top = 108.009276190000000000
           Width = 56.393011900000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -458,21 +464,42 @@ object DMConsPessoa: TDMConsPessoa
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Memo.UTF8 = (
-            'NIS')
+            'Fone')
+          ParentFont = False
+        end
+      end
+      object GroupHeader1: TfrxGroupHeader
+        FillType = ftBrush
+        Height = 20.000000000000000000
+        Top = 211.653680000000000000
+        Width = 718.110700000000000000
+        Condition = 'frxConsCidade."CIDADE"'
+        object Memo2: TfrxMemoView
+          Left = 63.476190480000000000
+          Top = 2.046381900000000000
+          Width = 403.059678570000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Memo.UTF8 = (
+            'Cidade: [frxConsCidade."CIDADE"]')
           ParentFont = False
         end
       end
       object MasterData1: TfrxMasterData
         FillType = ftBrush
         Height = 17.202844760000000000
-        Top = 211.653680000000000000
+        Top = 253.228510000000000000
         Width = 718.110700000000000000
-        DataSet = frxConsTD
-        DataSetName = 'frxConsTD'
+        DataSet = frxConsCidade
+        DataSetName = 'frxConsCidade'
         RowCount = 0
         object Memo3: TfrxMemoView
-          Left = 41.571428570000000000
-          Top = 0.224798570000000000
+          Left = 45.380952380000000000
+          Top = 1.418676190000000000
           Width = 204.072047140000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -481,13 +508,13 @@ object DMConsPessoa: TDMConsPessoa
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8 = (
-            '[frxConsTD."NOME"]')
+            '[frxConsCidade."NOME"]')
           ParentFont = False
         end
         object Memo5: TfrxMemoView
-          Left = 250.333333330000000000
-          Top = 0.224798570000000000
-          Width = 192.756030000000000000
+          Left = 252.238095240000000000
+          Top = 2.371057140000000000
+          Width = 283.464750000000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -495,13 +522,13 @@ object DMConsPessoa: TDMConsPessoa
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8 = (
-            '[frxConsTD."NOME_DEFICIENCIA"]')
+            '[frxConsCidade."ENDERECO"]')
           ParentFont = False
         end
         object Memo6: TfrxMemoView
-          Left = 445.190476190000000000
-          Top = 0.224798570000000000
-          Width = 86.929190000000000000
+          Left = 537.523809530000000000
+          Top = 2.371057140000000000
+          Width = 94.488250000000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -509,11 +536,11 @@ object DMConsPessoa: TDMConsPessoa
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8 = (
-            '[frxConsTD."FONE"]')
+            '[frxConsCidade."BAIRRO"]')
           ParentFont = False
         end
         object Memo12: TfrxMemoView
-          Left = 2.857142860000000000
+          Left = 6.666666670000000000
           Top = 0.224798570000000000
           Width = 29.786332850000000000
           Height = 15.118120000000000000
@@ -523,13 +550,13 @@ object DMConsPessoa: TDMConsPessoa
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8 = (
-            '[frxConsTD."CODIGO"]')
+            '[frxConsCidade."CODIGO"]')
           ParentFont = False
         end
-        object Memo15: TfrxMemoView
-          Left = 624.190476190000000000
-          Top = 0.224798570000000000
-          Width = 94.488250000000000000
+        object Memo14: TfrxMemoView
+          Left = 638.740570000000000000
+          Top = 3.779530000000000000
+          Width = 75.590600000000000000
           Height = 15.118120000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -537,62 +564,21 @@ object DMConsPessoa: TDMConsPessoa
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8 = (
-            '[frxConsTD."NIS"]')
-          ParentFont = False
-        end
-        object Memo16: TfrxMemoView
-          Left = 535.472790000000000000
-          Width = 83.149660000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -9
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[frxConsTD."FONE2"]')
+            '[frxConsCidade."TELEFONE"]')
           ParentFont = False
         end
       end
-      object Footer1: TfrxFooter
+      object GroupFooter1: TfrxGroupFooter
         FillType = ftBrush
-        Height = 22.677180000000000000
-        Top = 253.228510000000000000
+        Height = 18.867656190000000000
+        Top = 294.803340000000000000
         Width = 718.110700000000000000
-        object Memo2: TfrxMemoView
-          Left = 40.952380950000000000
-          Top = 3.104823330000000000
-          Width = 55.440630950000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Memo.UTF8 = (
-            'Total:')
-          ParentFont = False
-        end
         object Line2: TfrxLineView
-          Left = 1.904761900000000000
-          Top = 1.057204290000000000
-          Width = 713.303339520000000000
+          Left = 8.571428570000000000
+          Top = 7.720469520000000000
+          Width = 709.523809520000000000
           Color = clBlack
           Diagonal = True
-        end
-        object Memo13: TfrxMemoView
-          Left = 103.809523810000000000
-          Top = 3.104823330000000000
-          Width = 94.488250000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Memo.UTF8 = (
-            '[COUNT(MasterData1)]')
-          ParentFont = False
         end
       end
     end
